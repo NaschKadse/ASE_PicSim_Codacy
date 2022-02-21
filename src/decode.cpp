@@ -1,16 +1,11 @@
 #include "../header/decode.h"
 
-
 decode::decode(std::string inputCmd) {
-
     this->toDecode = std::move(inputCmd);
 }
-
 decode::~decode() = default;
-
-
 decode::decodedCmd decode::decodeCommand() {
-decodedCmd decodeCommand;
+    decodedCmd decodeCommand;
 
 
     // RETFIE
@@ -282,7 +277,6 @@ decodedCmd decodeCommand;
         //TODO
         //counter = literal;
     }
-
     return decodeCommand;
 }
 

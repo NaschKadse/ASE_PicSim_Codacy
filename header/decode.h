@@ -1,10 +1,8 @@
 #ifndef PICSIM2_0_DECODE_H
 #define PICSIM2_0_DECODE_H
 
-
 #include <string>
 #include <utility>
-
 
 class decode {
 public:
@@ -20,6 +18,5 @@ public:
 private:
     std::string toDecode;
 };
-
 
 #endif //PICSIM2_0_DECODE_H

@@ -1,11 +1,7 @@
 #include "../header/info.h"
 #include "../forms/ui_info.h"
 
-
-Info::Info(QWidget *parent) :
-    QDialog(parent,Qt::WindowSystemMenuHint | Qt::WindowTitleHint),
-    ui(new Ui::Info)
-{
+Info::Info(QWidget *parent) : QDialog(parent, Qt::WindowSystemMenuHint | Qt::WindowTitleHint), ui(new Ui::Info) {
     ui->setupUi(this);
     QPixmap pmap = QPixmap("../pic/Qt.png");
     ui->label->setPixmap(pmap);
@@ -16,8 +12,6 @@ Info::Info(QWidget *parent) :
     QPixmap pmap4 = QPixmap("../pic/dhbw.png");
     ui->label_4->setPixmap(pmap4);
 }
-
-Info::~Info()
-{
+Info::~Info() {
     delete ui;
 }

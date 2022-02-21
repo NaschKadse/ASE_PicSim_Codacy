@@ -20,7 +20,7 @@ set(REQUIRED_LIBS_QUALIFIED Qt5::Core Qt5::Gui Qt5::Widgets)
 
 
 add_executable(ASE_PicSim src/main.cpp src/inputfile.cpp header/inputfile.h src/utility.cpp header/utility.h src/decode.cpp header/decode.h src/ram.cpp header/ram.h src/picSim.cpp header/picSim.h src/picsimgui.cpp header/picsimgui.h
-        src/infodialog.cpp header/infodialog.h src/myStack.cpp header/myStack.h header/info.h src/info.cpp forms/info.ui)
+        src/infodialog.cpp header/infodialog.h header/info.h src/info.cpp forms/info.ui src/picData.cpp header/picData.h src/movlw.cpp header/movlw.h src/rrf.cpp header/rrf.h src/rlf.cpp header/rlf.h src/andlw.cpp header/andlw.h src/iorlw.cpp header/iorlw.h src/sublw.cpp header/sublw.h src/xorlw.cpp header/xorlw.h src/addlw.cpp header/addlw.h src/cmdgo.cpp header/cmdgo.h src/cmdcall.cpp header/cmdcall.h src/customStack.cpp header/customStack.h src/cmdreturn.cpp header/cmdreturn.h src/retlw.cpp header/retlw.h src/retfie.cpp header/retfie.h src/nop.cpp header/nop.h src/movwf.cpp header/movwf.h src/addwf.cpp header/addwf.h src/andwf.cpp header/andwf.h src/clrf.cpp header/clrf.h src/comf.cpp header/comf.h src/decf.cpp header/decf.h src/incf.cpp header/incf.h src/movf.cpp header/movf.h src/clrw.cpp header/clrw.h src/iorwf.cpp header/iorwf.h src/xorwf.cpp header/xorwf.h src/subwf.cpp header/subwf.h src/swapf.cpp header/swapf.h src/incfsz.cpp header/incfsz.h src/decfsz.cpp header/decfsz.h src/bsf.cpp header/bsf.h src/bcf.cpp header/bcf.h src/btfsc.cpp header/btfsc.h src/btfss.cpp header/btfss.h)
 
 if (NOT CMAKE_PREFIX_PATH)
     message(WARNING "CMAKE_PREFIX_PATH is not defined, you may need to set it "
