@@ -1297,7 +1297,6 @@ void PicSimGui::window(InfoDialog *dialog){
 }
 
 void PicSimGui::ramButtons(int button){
-    std::cout << "Button: " << button << "\n";
 
     InfoDialog *dialog = new InfoDialog(this);
     connect(dialog, &InfoDialog::accepted, [=]() {
