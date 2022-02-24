@@ -246,8 +246,6 @@ decode::decodedCmd decode::decodeCommand() {
         decodeCommand.dBit = -1;
         decodeCommand.filepos = -1;
         decodeCommand.literal = stoi(this->toDecode.substr(6, 8), nullptr, 2);
-        // TODO
-        //counter = returnadress;
     }
 
     // MOVLW
@@ -264,8 +262,6 @@ decode::decodedCmd decode::decodeCommand() {
         decodeCommand.dBit = -1;
         decodeCommand.filepos = -1;
         decodeCommand.literal = stoi(this->toDecode.substr(3, 11), nullptr, 2);
-        //TODO
-        //counter = literal;
     }
 
     // GOTO
@@ -274,8 +270,6 @@ decode::decodedCmd decode::decodeCommand() {
         decodeCommand.dBit = -1;
         decodeCommand.filepos = -1;
         decodeCommand.literal = stoi(this->toDecode.substr(3, 11), nullptr, 2);
-        //TODO
-        //counter = literal;
     }
     return decodeCommand;
 }
