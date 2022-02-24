@@ -1,10 +1,20 @@
 #include "../header/picsimgui.h"
 #include "../forms/ui_PicSimGui.h"
+#include <QButtonGroup>
 
 PicSimGui::PicSimGui(QWidget *parent) : QMainWindow(parent), ui(new Ui::PicSimGui) {
 
     ui->setupUi(this);
     picSim1.init(true); // Power on reset
+
+    QButtonGroup* rambuttonGroup = new QButtonGroup(this);
+
+    for (int i = 0; i < 256; i++) {
+        rambuttonGroup->addButton(this->findChild<QPushButton *>(QString::fromStdString("pushButton_" + std::to_string(i))),i);
+    }
+
+    connect(rambuttonGroup, SIGNAL(buttonClicked(int)), this, SLOT(ramButtons(int)));
+
     QApplication::setFont(fixedFont);
     ui->table->setColumnWidth(0, 25);
     ui->table->setColumnWidth(1, 925);
