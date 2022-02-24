@@ -93,7 +93,6 @@ color: white;</string>
         </property>
         <property name="font">
          <font>
-          <weight>75</weight>
           <bold>true</bold>
          </font>
         </property>
@@ -131,7 +130,6 @@ color: white;</string>
         </property>
         <property name="font">
          <font>
-          <weight>75</weight>
           <bold>true</bold>
          </font>
         </property>
@@ -169,7 +167,6 @@ color: white;</string>
         </property>
         <property name="font">
          <font>
-          <weight>75</weight>
           <bold>true</bold>
          </font>
         </property>
@@ -207,7 +204,6 @@ color: white;</string>
         </property>
         <property name="font">
          <font>
-          <weight>75</weight>
           <bold>true</bold>
          </font>
         </property>
@@ -245,7 +241,6 @@ color: white;</string>
         </property>
         <property name="font">
          <font>
-          <weight>75</weight>
           <bold>true</bold>
          </font>
         </property>
@@ -283,7 +278,6 @@ color: white;</string>
         </property>
         <property name="font">
          <font>
-          <weight>75</weight>
           <bold>true</bold>
          </font>
         </property>
@@ -321,7 +315,6 @@ color: white;</string>
         </property>
         <property name="font">
          <font>
-          <weight>75</weight>
           <bold>true</bold>
          </font>
         </property>
@@ -359,7 +352,6 @@ color: white;</string>
         </property>
         <property name="font">
          <font>
-          <weight>75</weight>
           <bold>true</bold>
          </font>
         </property>
@@ -412,7 +404,6 @@ color: white;</string>
         </property>
         <property name="font">
          <font>
-          <weight>75</weight>
           <bold>true</bold>
          </font>
         </property>
@@ -450,7 +441,6 @@ color: white;</string>
         </property>
         <property name="font">
          <font>
-          <weight>75</weight>
           <bold>true</bold>
          </font>
         </property>
@@ -488,7 +478,6 @@ color: white;</string>
         </property>
         <property name="font">
          <font>
-          <weight>75</weight>
           <bold>true</bold>
          </font>
         </property>
@@ -526,7 +515,6 @@ color: white;</string>
         </property>
         <property name="font">
          <font>
-          <weight>75</weight>
           <bold>true</bold>
          </font>
         </property>
@@ -564,7 +552,6 @@ color: white;</string>
         </property>
         <property name="font">
          <font>
-          <weight>75</weight>
           <bold>true</bold>
          </font>
         </property>
@@ -602,7 +589,6 @@ color: white;</string>
         </property>
         <property name="font">
          <font>
-          <weight>75</weight>
           <bold>true</bold>
          </font>
         </property>
@@ -640,7 +626,6 @@ color: white;</string>
         </property>
         <property name="font">
          <font>
-          <weight>75</weight>
           <bold>true</bold>
          </font>
         </property>
@@ -678,7 +663,6 @@ color: white;</string>
         </property>
         <property name="font">
          <font>
-          <weight>75</weight>
           <bold>true</bold>
          </font>
         </property>
@@ -716,7 +700,6 @@ color: white;</string>
         </property>
         <property name="font">
          <font>
-          <weight>75</weight>
           <bold>true</bold>
          </font>
         </property>
@@ -754,7 +737,6 @@ color: white;</string>
         </property>
         <property name="font">
          <font>
-          <weight>75</weight>
           <bold>true</bold>
          </font>
         </property>
@@ -792,7 +774,6 @@ color: white;</string>
         </property>
         <property name="font">
          <font>
-          <weight>75</weight>
           <bold>true</bold>
          </font>
         </property>
@@ -830,7 +811,6 @@ color: white;</string>
         </property>
         <property name="font">
          <font>
-          <weight>75</weight>
           <bold>true</bold>
          </font>
         </property>
@@ -868,7 +848,6 @@ color: white;</string>
         </property>
         <property name="font">
          <font>
-          <weight>75</weight>
           <bold>true</bold>
          </font>
         </property>
@@ -906,7 +885,6 @@ color: white;</string>
         </property>
         <property name="font">
          <font>
-          <weight>75</weight>
           <bold>true</bold>
          </font>
         </property>
@@ -944,7 +922,6 @@ color: white;</string>
         </property>
         <property name="font">
          <font>
-          <weight>75</weight>
           <bold>true</bold>
          </font>
         </property>
@@ -982,7 +959,6 @@ color: white;</string>
         </property>
         <property name="font">
          <font>
-          <weight>75</weight>
           <bold>true</bold>
          </font>
         </property>
@@ -1020,7 +996,6 @@ color: white;</string>
         </property>
         <property name="font">
          <font>
-          <weight>75</weight>
           <bold>true</bold>
          </font>
         </property>
@@ -1058,7 +1033,6 @@ color: white;</string>
         </property>
         <property name="font">
          <font>
-          <weight>75</weight>
           <bold>true</bold>
          </font>
         </property>
@@ -1096,7 +1070,6 @@ color: white;</string>
         </property>
         <property name="font">
          <font>
-          <weight>75</weight>
           <bold>true</bold>
          </font>
         </property>
@@ -1134,7 +1107,6 @@ color: white;</string>
         </property>
         <property name="font">
          <font>
-          <weight>75</weight>
           <bold>true</bold>
          </font>
         </property>
@@ -1172,7 +1144,6 @@ color: white;</string>
         </property>
         <property name="font">
          <font>
-          <weight>75</weight>
           <bold>true</bold>
          </font>
         </property>
@@ -1210,7 +1181,6 @@ color: white;</string>
         </property>
         <property name="font">
          <font>
-          <weight>75</weight>
           <bold>true</bold>
          </font>
         </property>
@@ -1248,7 +1218,6 @@ color: white;</string>
         </property>
         <property name="font">
          <font>
-          <weight>75</weight>
           <bold>true</bold>
          </font>
         </property>
@@ -1286,7 +1255,6 @@ color: white;</string>
         </property>
         <property name="font">
          <font>
-          <weight>75</weight>
           <bold>true</bold>
          </font>
         </property>
@@ -1324,7 +1292,6 @@ color: white;</string>
         </property>
         <property name="font">
          <font>
-          <weight>75</weight>
           <bold>true</bold>
          </font>
         </property>
@@ -1362,7 +1329,6 @@ color: white;</string>
         </property>
         <property name="font">
          <font>
-          <weight>75</weight>
           <bold>true</bold>
          </font>
         </property>
@@ -1400,7 +1366,6 @@ color: white;</string>
         </property>
         <property name="font">
          <font>
-          <weight>75</weight>
           <bold>true</bold>
          </font>
         </property>
@@ -1438,7 +1403,6 @@ color: white;</string>
         </property>
         <property name="font">
          <font>
-          <weight>75</weight>
           <bold>true</bold>
          </font>
         </property>
@@ -1476,7 +1440,6 @@ color: white;</string>
         </property>
         <property name="font">
          <font>
-          <weight>75</weight>
           <bold>true</bold>
          </font>
         </property>
@@ -1514,7 +1477,6 @@ color: white;</string>
         </property>
         <property name="font">
          <font>
-          <weight>75</weight>
           <bold>true</bold>
          </font>
         </property>
@@ -1552,7 +1514,6 @@ color: white;</string>
         </property>
         <property name="font">
          <font>
-          <weight>75</weight>
           <bold>true</bold>
          </font>
         </property>
@@ -1590,7 +1551,6 @@ color: white;</string>
         </property>
         <property name="font">
          <font>
-          <weight>75</weight>
           <bold>true</bold>
          </font>
         </property>
@@ -11347,9 +11307,6 @@ color: black;</string>
       <property name="text">
        <string/>
       </property>
-      <property name="textAlignment">
-       <set>AlignCenter</set>
-      </property>
      </column>
      <column>
       <property name="text">
@@ -11405,7 +11362,6 @@ color: black;</string>
         </property>
         <property name="font">
          <font>
-          <family>Arial</family>
           <pointsize>8</pointsize>
          </font>
         </property>
@@ -11440,9 +11396,7 @@ border: 1px solid gray;
         </property>
         <property name="font">
          <font>
-          <family>Arial</family>
           <pointsize>12</pointsize>
-          <weight>75</weight>
           <bold>true</bold>
          </font>
         </property>
@@ -11480,9 +11434,7 @@ QPushButton:pressed {
         </property>
         <property name="font">
          <font>
-          <family>Arial</family>
           <pointsize>12</pointsize>
-          <weight>75</weight>
           <bold>true</bold>
          </font>
         </property>
@@ -11527,9 +11479,7 @@ QPushButton:pressed {
         </property>
         <property name="font">
          <font>
-          <family>Arial</family>
           <pointsize>12</pointsize>
-          <weight>75</weight>
           <bold>true</bold>
          </font>
         </property>
@@ -11567,9 +11517,7 @@ QPushButton:pressed {
         </property>
         <property name="font">
          <font>
-          <family>Arial</family>
           <pointsize>12</pointsize>
-          <weight>75</weight>
           <bold>true</bold>
          </font>
         </property>
@@ -11607,9 +11555,7 @@ QPushButton:pressed {
         </property>
         <property name="font">
          <font>
-          <family>Arial</family>
           <pointsize>12</pointsize>
-          <weight>75</weight>
           <bold>true</bold>
          </font>
         </property>
@@ -11647,9 +11593,7 @@ QPushButton:pressed {
         </property>
         <property name="font">
          <font>
-          <family>Arial</family>
           <pointsize>12</pointsize>
-          <weight>75</weight>
           <bold>true</bold>
          </font>
         </property>
@@ -11687,9 +11631,7 @@ QPushButton:pressed {
         </property>
         <property name="font">
          <font>
-          <family>Arial</family>
           <pointsize>12</pointsize>
-          <weight>75</weight>
           <bold>true</bold>
          </font>
         </property>
@@ -15014,7 +14956,6 @@ color: white;
      </property>
      <property name="font">
       <font>
-       <family>Arial</family>
        <pointsize>8</pointsize>
       </font>
      </property>
@@ -15251,9 +15192,7 @@ color: white;
      </property>
      <property name="font">
       <font>
-       <family>Arial</family>
        <pointsize>12</pointsize>
-       <weight>75</weight>
        <bold>true</bold>
       </font>
      </property>

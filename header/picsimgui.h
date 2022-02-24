@@ -37,6 +37,7 @@ public:
     const QFont fixedFont = QFontDatabase::systemFont(QFontDatabase::FixedFont);
     void pong();
 private slots:
+    void ramButtons(int button);
     void runTrue();
     void on_pushButton_laden_clicked();
     void on_pushButton_start_clicked();
@@ -48,6 +49,7 @@ private slots:
     void on_actionClose_triggered();
     void on_actionInfo_triggered();
     void on_actionDoku_triggered();
+    /*
     void on_pushButton_0_clicked();
     void on_pushButton_1_clicked();
     void on_pushButton_2_clicked();
@@ -304,6 +306,7 @@ private slots:
     void on_pushButton_253_clicked();
     void on_pushButton_254_clicked();
     void on_pushButton_255_clicked();
+     */
     void on_pushButton_256_clicked();
     void on_pushButton_257_clicked();
     void on_pushButton_258_clicked();
@@ -372,13 +375,15 @@ private:
     std::array<bool, 2048> breakarray = {false};
     std::array<int, 2048> pcarray = {0};
     std::array<int, 2048> positionArray = {0};
-    std::string intToHexString(int i);
+    static std::string intToHexString(int i);
     void highlightcmds();
     void resetload();
     void resetButton();
     bool checkBreakpoint();
     void laden();
     void fastladen();
+    void window(InfoDialog *dialog);
+
 };
 
 #endif // PICSIMGUI_H

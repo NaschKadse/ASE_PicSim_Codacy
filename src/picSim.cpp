@@ -167,6 +167,7 @@ void picSim::executecmd(decode::decodedCmd decoded) {
         delete retfieexecute;
     }
 }
+
 int picSim::run(std::string path, int guicounter) {
     inputfile file(path);
     file.readFile();
@@ -189,6 +190,7 @@ int picSim::run(std::string path, int guicounter) {
     rb0interrupt();
     return picData1->getProgramCounter().to_ulong();
 }
+
 void picSim::timer() {
     if (ram1->getRam(129).test(5) == 0) {
         if (picData1->getCycle() >= ram1->prescaler()) {
@@ -236,30 +238,12 @@ void picSim::setoldrb47() {
 void picSim::rb47interrupt() {
     if (ram1->getRam(11).test(7) == 1) { // GIE erlaubt?
         if (ram1->getRam(11).test(3) == 1) { // RBIE enabled??
-
-            if (ram1->getRam(134).test(7) == 1 && rb7 != ram1->getRam(6).test(7)) {
-                // Interrupt
-                ram1->modifyBit(11, 7, false); // GIE auf 0 ziehen um Interrupts zu sperren
-                ram1->modifyBit(11, 0, true); // RBIF set Interrupt aufgetreten?
-                customStack1->push(picData1->getProgramCounter().to_ulong()); // aktueller counter auf stack pushen
-                picData1->setProgramCounter(4); // 4 in PC
-            }
-            if (ram1->getRam(134).test(6) == 1 && rb6 != ram1->getRam(6).test(6)) {
-                // Interrupt
-                ram1->modifyBit(11, 7, false); // GIE auf 0 ziehen um Interrupts zu sperren
-                ram1->modifyBit(11, 0, true); // RBIF set Interrupt aufgetreten?
-                customStack1->push(picData1->getProgramCounter().to_ulong()); // aktueller counter auf stack pushen
-                picData1->setProgramCounter(4); // 4 in PC
-            }
-            if (ram1->getRam(134).test(5) == 1 && rb5 != ram1->getRam(6).test(5)) {
-                // Interrupt
-                ram1->modifyBit(11, 7, false); // GIE auf 0 ziehen um Interrupts zu sperren
-                ram1->modifyBit(11, 0, true); // RBIF set Interrupt aufgetreten?
-                customStack1->push(picData1->getProgramCounter().to_ulong()); // aktueller counter auf stack pushen
-                picData1->setProgramCounter(4); // 4 in PC
-            }
-            if (ram1->getRam(134).test(4) == 1 && rb4 != ram1->getRam(6).test(4)) {
-                // Interrupt
+            BYTE ramhelper1 = ram1->getRam(134);
+            BYTE ramhelper2 = ram1->getRam(6);
+            if(ramhelper1.test(7) == 1 && rb7 != ramhelper2.test(7) ||
+                ramhelper1.test(6) == 1 && rb6 != ramhelper2.test(6) ||
+                ramhelper1.test(5) == 1 && rb5 != ramhelper2.test(5) ||
+                ramhelper1.test(4) == 1 && rb4 != ramhelper2.test(4)){
                 ram1->modifyBit(11, 7, false); // GIE auf 0 ziehen um Interrupts zu sperren
                 ram1->modifyBit(11, 0, true); // RBIF set Interrupt aufgetreten?
                 customStack1->push(picData1->getProgramCounter().to_ulong()); // aktueller counter auf stack pushen
