@@ -8,13 +8,13 @@ picData *picData::getPicDataObject() {
     }
     return picDataObject;
 }
-void picData::setWreg(BYTE lwreg) {
+void picData::setWreg(const BYTE lwreg) {
     this->wreg = lwreg;
 }
 BYTE picData::getWreg() {
     return this->wreg;
 }
-void picData::setProgramCounter(PC lprogrammCounter) {
+void picData::setProgramCounter(const PC lprogrammCounter) {
     this->programmCounter = lprogrammCounter;
 }
 PC picData::getProgramCounter() {

@@ -1020,7 +1020,7 @@ void PicSimGui::pong() {
 std::string PicSimGui::intToHexString(int i) {
     std::stringstream stream;
     stream << std::hex << i;
-    std::string result = stream.str();
+    //std::string result = stream.str();
     return stream.str();
 }
 void PicSimGui::breakpointclicked(int row, int column) {

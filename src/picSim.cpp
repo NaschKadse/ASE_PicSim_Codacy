@@ -190,7 +190,7 @@ bool picSim::checkFilepos(int filepos_m){
     return false;
 }
 
-int picSim::createPC(std::string filepos10, std::string filepos2) {
+int picSim::createPC(const std::string filepos10, std::string filepos2) {
     std::string PCLATH = filepos10;
     std::string PCL = filepos2;
     std::string PCLATH40 = PCLATH.substr(3, 5);

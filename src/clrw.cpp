@@ -1,6 +1,6 @@
 #include "../header/clrw.h"
 
-void clrw::executeCMD(decodedCmdSimple ldecoded) {
+void clrw::executeCMD(const decodedCmdSimple ldecoded) {
     picDatalocal->setWreg(0);
     ramlocal->zeroFlag(0);
     picDatalocal->setProgramCounter(picDatalocal->getProgramCounter().to_ulong() + 1);

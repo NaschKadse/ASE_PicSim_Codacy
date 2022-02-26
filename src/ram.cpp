@@ -98,13 +98,13 @@ void ram::setDCarry(bool value) {
         modifyBit(3, 1, false);
     }
 }
-addition ram::halfAdder(BIT A, BIT B) {
+addition ram::halfAdder(const BIT A, BIT B) {
     addition halfAdder;
     halfAdder.sum = A ^ B;
     halfAdder.carry = A & B;
     return halfAdder;
 }
-addition ram::Adder(BIT A, BIT B, BIT carry) {
+addition ram::Adder(const BIT A, BIT B, BIT carry) {
     addition adder;
     BIT carry1;
     BIT carry2;

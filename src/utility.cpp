@@ -24,7 +24,7 @@ std::string utility::fillup() {
 }
 const unsigned char ae = static_cast<unsigned char>(132);
 const unsigned char ue = static_cast<unsigned char>(129);
-void utility::debugprint1(std::string cmd, BYTE pcl, int value, std::string cmdbin) {
+void utility::debugprint1(const std::string cmd, BYTE pcl, int value, std::string cmdbin) {
     int cmdint = std::stoi(cmdbin, 0, 2);
     std::cout << "------------------------------------------------------\n";
     std::printf("|  %c %c %c    N%cchster Befehl zum Ausf%chren     %c %c %c  |\n", 31, 31, 31, ae, ue, 31, 31, 31);
