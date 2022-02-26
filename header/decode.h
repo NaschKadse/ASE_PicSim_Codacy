@@ -3,6 +3,7 @@
 
 #include <string>
 #include <utility>
+#include "command.h"
 
 class decode {
 public:
@@ -13,6 +14,7 @@ public:
         int dBit;
         int filepos;
         int literal;
+        command* cmdobject;
     };
     decodedCmd decodeCommand();
 private:

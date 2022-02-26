@@ -8,12 +8,9 @@
 typedef std::bitset<8> BYTE;
 typedef std::bitset<13> PC;
 
-class comf : public picSim {
+class comf : public command {
 public:
-    void execute(const decode::decodedCmd &ldecoded);
-    explicit comf(decode::decodedCmd ldecoded) {
-        execute(ldecoded);
-    };
+    void executeCMD(decodedCmdSimple ldecoded);
 private:
     ram *ramlocal = ram::getRamObject();
     picData *picDatalocal = picData::getPicDataObject();

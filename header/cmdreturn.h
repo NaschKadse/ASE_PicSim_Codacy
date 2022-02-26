@@ -9,12 +9,10 @@
 typedef std::bitset<8> BYTE;
 typedef std::bitset<13> PC;
 
-class cmdreturn : public picSim {
+class cmdreturn : public command {
 public:
-    void execute(const decode::decodedCmd &ldecoded);
-    explicit cmdreturn(decode::decodedCmd ldecoded) {
-        execute(ldecoded);
-    };
+    void executeCMD(decodedCmdSimple ldecoded);
+
 private:
     ram *ramlocal = ram::getRamObject();
     customStack *customStacklocal = customStack::getcustomStackObject();

@@ -1,173 +1,14 @@
 #include "../header/picSim.h"
-#include "../header/movlw.h"
-#include "../header/rrf.h"
-#include "../header/rlf.h"
-#include "../header/andlw.h"
-#include "../header/iorlw.h"
-#include "../header/sublw.h"
-#include "../header/xorlw.h"
-#include "../header/addlw.h"
-#include "../header/cmdgo.h"
-#include "../header/cmdcall.h"
-#include "../header/cmdreturn.h"
-#include "../header/retlw.h"
-#include "../header/retfie.h"
-#include "../header/nop.h"
-#include "../header/movwf.h"
-#include "../header/addwf.h"
-#include "../header/andwf.h"
-#include "../header/clrf.h"
-#include "../header/comf.h"
-#include "../header/decf.h"
-#include "../header/incf.h"
-#include "../header/movf.h"
-#include "../header/clrw.h"
-#include "../header/iorwf.h"
-#include "../header/xorwf.h"
-#include "../header/subwf.h"
-#include "../header/swapf.h"
-#include "../header/incfsz.h"
-#include "../header/decfsz.h"
-#include "../header/bsf.h"
-#include "../header/bcf.h"
-#include "../header/btfsc.h"
-#include "../header/btfss.h"
 
 void picSim::executecmd(decode::decodedCmd decoded) {
-    if (decoded.cmd == "MOVLW") {
-        movlw *movlwexecute = new movlw(decoded);
-        delete movlwexecute;
-    }
-    if (decoded.cmd == "RRF") {
-        rrf *rrfexecute = new rrf(decoded);
-        delete rrfexecute;
-    }
-    if (decoded.cmd == "RLF") {
-        rlf *rlfexecute = new rlf(decoded);
-        delete rlfexecute;
-    }
-    if (decoded.cmd == "ANDLW") {
-        andlw *andlwexecute = new andlw(decoded);
-        delete andlwexecute;
-    }
-    if (decoded.cmd == "IORLW") {
-        iorlw *iorlwexecute = new iorlw(decoded);
-        delete iorlwexecute;
-    }
-    if (decoded.cmd == "SUBLW") {
-        sublw *sublwexecute = new sublw(decoded);
-        delete sublwexecute;
-    }
-    if (decoded.cmd == "XORLW") {
-        xorlw *xorlwexecute = new xorlw(decoded);
-        delete xorlwexecute;
-    }
-    if (decoded.cmd == "ADDLW") {
-        addlw *addlwexecute = new addlw(decoded);
-        delete addlwexecute;
-    }
-    if (decoded.cmd == "GOTO") {
-        cmdgo *cmdgoexecute = new cmdgo(decoded);
-        delete cmdgoexecute;
-    }
-    if (decoded.cmd == "CALL") {
-        cmdcall *cmdcallexecute = new cmdcall(decoded);
-        delete cmdcallexecute;
-    }
-    if (decoded.cmd == "RETURN") {
-        cmdreturn *cmdreturnexecute = new cmdreturn(decoded);
-        delete cmdreturnexecute;
-    }
-    if (decoded.cmd == "RETLW") {
-        retlw *retlwexecute = new retlw(decoded);
-        delete retlwexecute;
-    }
-    if (decoded.cmd == "NOP") {
-        class nop *nopexecute = new class nop(decoded);
-        delete nopexecute;
-    }
-    if (decoded.cmd == "MOVWF") {
-        movwf *movwfexecute = new movwf(decoded);
-        delete movwfexecute;
-    }
-    if (decoded.cmd == "ADDWF") {
-        addwf *addwfexecute = new addwf(decoded);
-        delete addwfexecute;
-    }
-    if (decoded.cmd == "ANDWF") {
-        andwf *andwfexecute = new andwf(decoded);
-        delete andwfexecute;
-    }
-    if (decoded.cmd == "CLRF") {
-        clrf *clrfexecute = new clrf(decoded);
-        delete clrfexecute;
-    }
-    if (decoded.cmd == "COMF") {
-        comf *comfexecute = new comf(decoded);
-        delete comfexecute;
-    }
-    if (decoded.cmd == "DECF") {
-        decf *decfexecute = new decf(decoded);
-        delete decfexecute;
-    }
-    if (decoded.cmd == "INCF") {
-        incf *incfexecute = new incf(decoded);
-        delete incfexecute;
-    }
-    if (decoded.cmd == "MOVF") {
-        movf *movfexecute = new movf(decoded);
-        delete movfexecute;
-    }
-    if (decoded.cmd == "CLRW") {
-        clrw *clrwexecute = new clrw(decoded);
-        delete clrwexecute;
-    }
-    if (decoded.cmd == "IORWF") {
-        iorwf *iorwfexecute = new iorwf(decoded);
-        delete iorwfexecute;
-    }
-    if (decoded.cmd == "XORWF") {
-        xorwf *xorwfexecute = new xorwf(decoded);
-        delete xorwfexecute;
-    }
-    if (decoded.cmd == "SUBWF") {
-        subwf *subwfexecute = new subwf(decoded);
-        delete subwfexecute;
-    }
-    if (decoded.cmd == "SWAPF") {
-        swapf *swapfexecute = new swapf(decoded);
-        delete swapfexecute;
-    }
-    if (decoded.cmd == "INCFSZ") {
-        incfsz *incfszexecute = new incfsz(decoded);
-        delete incfszexecute;
-    }
-    if (decoded.cmd == "DECFSZ") {
-        decfsz *decfszexecute = new decfsz(decoded);
-        delete decfszexecute;
-    }
-    if (decoded.cmd == "BSF") {
-        bsf *bsfexecute = new bsf(decoded);
-        delete bsfexecute;
-    }
-    if (decoded.cmd == "BCF") {
-        bcf *bcfexecute = new bcf(decoded);
-        delete bcfexecute;
-    }
-    if (decoded.cmd == "BTFSC") {
-        btfsc *btfscexecute = new btfsc(decoded);
-        delete btfscexecute;
-    }
-    if (decoded.cmd == "BTFSS") {
-        btfss *btfssexecute = new btfss(decoded);
-        delete btfssexecute;
-    }
-    if (decoded.cmd == "RETFIE") {
-        retfie *retfieexecute = new retfie(decoded);
-        delete retfieexecute;
-    }
+    decodedCmdSimple localstruct;
+    localstruct.cmd = decoded.cmd;
+    localstruct.dBit = decoded.dBit;
+    localstruct.literal = decoded.literal;
+    localstruct.filepos = decoded.filepos;
+    decoded.cmdobject->executeCMD(localstruct);
+    delete decoded.cmdobject;
 }
-
 int picSim::run(std::string path, int guicounter) {
     inputfile file(path);
     file.readFile();
@@ -190,7 +31,6 @@ int picSim::run(std::string path, int guicounter) {
     rb0interrupt();
     return picData1->getProgramCounter().to_ulong();
 }
-
 void picSim::timer() {
     if (ram1->getRam(129).test(5) == 0) {
         if (picData1->getCycle() >= ram1->prescaler()) {
@@ -240,10 +80,10 @@ void picSim::rb47interrupt() {
         if (ram1->getRam(11).test(3) == 1) { // RBIE enabled??
             BYTE ramhelper1 = ram1->getRam(134);
             BYTE ramhelper2 = ram1->getRam(6);
-            if(ramhelper1.test(7) == 1 && rb7 != ramhelper2.test(7) ||
+            if (ramhelper1.test(7) == 1 && rb7 != ramhelper2.test(7) ||
                 ramhelper1.test(6) == 1 && rb6 != ramhelper2.test(6) ||
                 ramhelper1.test(5) == 1 && rb5 != ramhelper2.test(5) ||
-                ramhelper1.test(4) == 1 && rb4 != ramhelper2.test(4)){
+                ramhelper1.test(4) == 1 && rb4 != ramhelper2.test(4)) {
                 ram1->modifyBit(11, 7, false); // GIE auf 0 ziehen um Interrupts zu sperren
                 ram1->modifyBit(11, 0, true); // RBIF set Interrupt aufgetreten?
                 customStack1->push(picData1->getProgramCounter().to_ulong()); // aktueller counter auf stack pushen
@@ -343,26 +183,27 @@ std::string picSim::getPCLATH() {
     PCLATH5 = PCLATH8.substr(3, 5);
     return PCLATH5;
 }
-void picSim::createPC(int filepos_m) {
-    if (filepos_m == 2) {
-        std::string PCLATH = ram1->getRam(10).to_string();
-        std::string PCL = ram1->getRam(2).to_string();
-        std::string PCLATH40 = PCLATH.substr(3, 5);
-        std::string PCstring = PCLATH40 + PCL;
-        PC PCbits = std::stoi(PCstring, 0, 2);
-        picData1->setProgramCounter(PCbits.to_ulong());
-    } else {
-        picData1->setProgramCounter(picData1->getProgramCounter().to_ulong());
+bool picSim::checkFilepos(int filepos_m){
+    if(filepos_m == 2){
+        return true;
     }
+    return false;
 }
-BYTE picSim::createPCL() {
-    std::string PCstring = picData1->getProgramCounter().to_string();
+
+int picSim::createPC(std::string filepos10, std::string filepos2) {
+    std::string PCLATH = filepos10;
+    std::string PCL = filepos2;
+    std::string PCLATH40 = PCLATH.substr(3, 5);
+    std::string PCstring = PCLATH40 + PCL;
+    PC PCbits = std::stoi(PCstring, 0, 2);
+    return PCbits.to_ulong();
+}
+BYTE picSim::createPCL(std::string PCstring) {
     std::string PCL = PCstring.substr(5, 8);
     BYTE PCLreturn = stoi(PCL, 0, 2);
     return PCLreturn;
 }
-std::string picSim::pclath43() {
-    std::string PCLATH = ram1->getRam(10).to_string();
+std::string picSim::pclath43(std::string PCLATH) {
     std::string PCLATH43 = PCLATH.substr(0, 2);
     return PCLATH43;
 }

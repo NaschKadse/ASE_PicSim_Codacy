@@ -9,12 +9,10 @@
 typedef std::bitset<8> BYTE;
 typedef std::bitset<13> PC;
 
-class retfie : public picSim {
+class retfie : public command {
 public:
-    void execute(const decode::decodedCmd &ldecoded);
-    explicit retfie(decode::decodedCmd ldecoded) {
-        execute(ldecoded);
-    };
+    void executeCMD(decodedCmdSimple ldecoded);
+
 private:
     ram *ramlocal = ram::getRamObject();
     customStack *customStacklocal = customStack::getcustomStackObject();

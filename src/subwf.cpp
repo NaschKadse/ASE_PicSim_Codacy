@@ -1,6 +1,6 @@
 #include "../header/subwf.h"
 
-void subwf::execute(const decode::decodedCmd &ldecoded) {
+void subwf::executeCMD(decodedCmdSimple ldecoded) {
     if (ldecoded.dBit == 0) {
         additionReturn additionret = ramlocal->doaddition(ramlocal->getRam(ldecoded.filepos),
                                                           (~picDatalocal->getWreg()).to_ulong() + 1);
@@ -32,10 +32,13 @@ void subwf::execute(const decode::decodedCmd &ldecoded) {
         } else {
             ramlocal->setDCarry(false);
         }
-        createPC(ldecoded.filepos);
+        if (picSim::checkFilepos(ldecoded.filepos)) {
+            picDatalocal->setProgramCounter(
+                    picSim::createPC(ramlocal->getRam(10).to_string(), ramlocal->getRam(2).to_string()));
+        }
     }
     picDatalocal->setProgramCounter(picDatalocal->getProgramCounter().to_ulong() + 1);
-    ramlocal->setRam(2, createPCL().to_ulong());
+    ramlocal->setRam(2, picSim::createPCL(picDatalocal->getProgramCounter().to_string()).to_ulong());
     picDatalocal->setCycle(picDatalocal->getCycle() + 1);
     picDatalocal->setRuntime(picDatalocal->getRuntime() + picDatalocal->getMultiplier());
 }

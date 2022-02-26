@@ -24,10 +24,10 @@ public:
     void reset();
     void setoldrb47();
     void rb47interrupt();
-    void createPC(int filepos_m);
-protected:
-    BYTE createPCL();
-    std::string pclath43();
+    static bool checkFilepos(int filepos_m);
+    static int createPC(std::string filepos10, std::string filepos2);
+    static BYTE createPCL(std::string PCstring);
+    static std::string pclath43(std::string PCLATH);
 private:
     void executecmd(decode::decodedCmd decoded);
     std::string thecommand;

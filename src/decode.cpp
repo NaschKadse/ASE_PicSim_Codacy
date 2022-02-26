@@ -1,4 +1,37 @@
 #include "../header/decode.h"
+#include "../header/movlw.h"
+#include "../header/retfie.h"
+#include "../header/cmdreturn.h"
+#include "../header/nop.h"
+#include "../header/clrf.h"
+#include "../header/clrw.h"
+#include "../header/movwf.h"
+#include "../header/subwf.h"
+#include "../header/iorwf.h"
+#include "../header/movf.h"
+#include "../header/swapf.h"
+#include "../header/addwf.h"
+#include "../header/andwf.h"
+#include "../header/andlw.h"
+#include "../header/decfsz.h"
+#include "../header/incfsz.h"
+#include "../header/comf.h"
+#include "../header/iorlw.h"
+#include "../header/decf.h"
+#include "../header/incf.h"
+#include "../header/xorlw.h"
+#include "../header/rrf.h"
+#include "../header/rlf.h"
+#include "../header/xorwf.h"
+#include "../header/sublw.h"
+#include "../header/addlw.h"
+#include "../header/btfsc.h"
+#include "../header/btfss.h"
+#include "../header/bcf.h"
+#include "../header/bsf.h"
+#include "../header/retlw.h"
+#include "../header/cmdcall.h"
+#include "../header/cmdgo.h"
 
 decode::decode(std::string inputCmd) {
     this->toDecode = std::move(inputCmd);
@@ -14,6 +47,7 @@ decode::decodedCmd decode::decodeCommand() {
         decodeCommand.dBit = -1;
         decodeCommand.filepos = -1;
         decodeCommand.literal = -1;
+        decodeCommand.cmdobject = new retfie();
     }
 
     // RETURN
@@ -22,6 +56,7 @@ decode::decodedCmd decode::decodeCommand() {
         decodeCommand.dBit = -1;
         decodeCommand.filepos = -1;
         decodeCommand.literal = -1;
+        decodeCommand.cmdobject = new cmdreturn();
     }
 
     // NOP
@@ -30,6 +65,7 @@ decode::decodedCmd decode::decodeCommand() {
         decodeCommand.dBit = -1;
         decodeCommand.filepos = -1;
         decodeCommand.literal = -1;
+        decodeCommand.cmdobject = new nop();
     }
 
     // CLRF
@@ -38,6 +74,7 @@ decode::decodedCmd decode::decodeCommand() {
         decodeCommand.dBit = -1;
         decodeCommand.filepos = stoi(this->toDecode.substr(7, 7), nullptr, 2);
         decodeCommand.literal = -1;
+        decodeCommand.cmdobject = new clrf();
     }
 
     // CLRW
@@ -46,6 +83,7 @@ decode::decodedCmd decode::decodeCommand() {
         decodeCommand.dBit = -1;
         decodeCommand.filepos = -1;
         decodeCommand.literal = -1;
+        decodeCommand.cmdobject = new clrw();
     }
 
     // MOVWF
@@ -54,6 +92,7 @@ decode::decodedCmd decode::decodeCommand() {
         decodeCommand.dBit = -1;
         decodeCommand.filepos = stoi(this->toDecode.substr(7, 7), nullptr, 2);
         decodeCommand.literal = -1;
+        decodeCommand.cmdobject = new movwf();
     }
 
     //SUBWF
@@ -62,6 +101,7 @@ decode::decodedCmd decode::decodeCommand() {
         decodeCommand.dBit = stoi(this->toDecode.substr(6, 1), nullptr, 2);
         decodeCommand.filepos = stoi(this->toDecode.substr(7, 7), nullptr, 2);
         decodeCommand.literal = -1;
+        decodeCommand.cmdobject = new subwf();
     }
 
     // IORWF
@@ -70,6 +110,7 @@ decode::decodedCmd decode::decodeCommand() {
         decodeCommand.dBit = stoi(this->toDecode.substr(6, 1), nullptr, 2);
         decodeCommand.filepos = stoi(this->toDecode.substr(7, 7), nullptr, 2);
         decodeCommand.literal = -1;
+        decodeCommand.cmdobject = new iorwf();
     }
 
     // MOVF
@@ -78,6 +119,7 @@ decode::decodedCmd decode::decodeCommand() {
         decodeCommand.dBit = stoi(this->toDecode.substr(6, 1), nullptr, 2);
         decodeCommand.filepos = stoi(this->toDecode.substr(7, 7), nullptr, 2);
         decodeCommand.literal = -1;
+        decodeCommand.cmdobject = new movf();
     }
 
     // SWAPF
@@ -86,6 +128,7 @@ decode::decodedCmd decode::decodeCommand() {
         decodeCommand.dBit = stoi(this->toDecode.substr(6, 1), nullptr, 2);
         decodeCommand.filepos = stoi(this->toDecode.substr(7, 7), nullptr, 2);
         decodeCommand.literal = -1;
+        decodeCommand.cmdobject = new swapf();
     }
 
     // ADDWF
@@ -94,6 +137,7 @@ decode::decodedCmd decode::decodeCommand() {
         decodeCommand.dBit = stoi(this->toDecode.substr(6, 1), nullptr, 2);
         decodeCommand.filepos = stoi(this->toDecode.substr(7, 7), nullptr, 2);
         decodeCommand.literal = -1;
+        decodeCommand.cmdobject = new addwf();
     }
 
     // ANDWF
@@ -102,6 +146,7 @@ decode::decodedCmd decode::decodeCommand() {
         decodeCommand.dBit = stoi(this->toDecode.substr(6, 1), nullptr, 2);
         decodeCommand.filepos = stoi(this->toDecode.substr(7, 7), nullptr, 2);
         decodeCommand.literal = -1;
+        decodeCommand.cmdobject = new andwf();
     }
 
     // ANDLW
@@ -110,6 +155,7 @@ decode::decodedCmd decode::decodeCommand() {
         decodeCommand.dBit = -1;
         decodeCommand.filepos = -1;
         decodeCommand.literal = stoi(this->toDecode.substr(6, 8), nullptr, 2);
+        decodeCommand.cmdobject = new andlw();
     }
 
     // DECFSZ
@@ -118,6 +164,7 @@ decode::decodedCmd decode::decodeCommand() {
         decodeCommand.dBit = stoi(this->toDecode.substr(6, 1), nullptr, 2);
         decodeCommand.filepos = stoi(this->toDecode.substr(7, 7), nullptr, 2);
         decodeCommand.literal = -1;
+        decodeCommand.cmdobject = new decfsz();
     }
 
     // INCFSZ
@@ -126,6 +173,7 @@ decode::decodedCmd decode::decodeCommand() {
         decodeCommand.dBit = stoi(this->toDecode.substr(6, 1), nullptr, 2);
         decodeCommand.filepos = stoi(this->toDecode.substr(7, 7), nullptr, 2);
         decodeCommand.literal = -1;
+        decodeCommand.cmdobject = new incfsz();
     }
 
     // COMF
@@ -134,6 +182,7 @@ decode::decodedCmd decode::decodeCommand() {
         decodeCommand.dBit = stoi(this->toDecode.substr(6, 1), nullptr, 2);
         decodeCommand.filepos = stoi(this->toDecode.substr(7, 7), nullptr, 2);
         decodeCommand.literal = -1;
+        decodeCommand.cmdobject = new comf();
     }
 
     // IORLW
@@ -142,6 +191,7 @@ decode::decodedCmd decode::decodeCommand() {
         decodeCommand.dBit = -1;
         decodeCommand.filepos = -1;
         decodeCommand.literal = stoi(this->toDecode.substr(6, 9), nullptr, 2);
+        decodeCommand.cmdobject = new iorlw();
     }
 
     // DECF
@@ -150,6 +200,7 @@ decode::decodedCmd decode::decodeCommand() {
         decodeCommand.dBit = stoi(this->toDecode.substr(6, 1), nullptr, 2);
         decodeCommand.filepos = stoi(this->toDecode.substr(7, 7), nullptr, 2);
         decodeCommand.literal = -1;
+        decodeCommand.cmdobject = new decf();
     }
 
     // INCF
@@ -158,6 +209,7 @@ decode::decodedCmd decode::decodeCommand() {
         decodeCommand.dBit = stoi(this->toDecode.substr(6, 1), nullptr, 2);
         decodeCommand.filepos = stoi(this->toDecode.substr(7, 7), nullptr, 2);
         decodeCommand.literal = -1;
+        decodeCommand.cmdobject = new incf();
     }
 
     // XORLW
@@ -166,6 +218,7 @@ decode::decodedCmd decode::decodeCommand() {
         decodeCommand.dBit = -1;
         decodeCommand.filepos = -1;
         decodeCommand.literal = stoi(this->toDecode.substr(6, 8), nullptr, 2);
+        decodeCommand.cmdobject = new xorlw();
     }
 
     // RRF
@@ -174,6 +227,7 @@ decode::decodedCmd decode::decodeCommand() {
         decodeCommand.dBit = stoi(this->toDecode.substr(6, 1), nullptr, 2);
         decodeCommand.filepos = stoi(this->toDecode.substr(7, 7), nullptr, 2);
         decodeCommand.literal = -1;
+        decodeCommand.cmdobject = new rrf();
     }
 
     // RLF
@@ -182,6 +236,7 @@ decode::decodedCmd decode::decodeCommand() {
         decodeCommand.dBit = stoi(this->toDecode.substr(6, 1), nullptr, 2);
         decodeCommand.filepos = stoi(this->toDecode.substr(7, 7), nullptr, 2);
         decodeCommand.literal = -1;
+        decodeCommand.cmdobject = new rlf();
     }
 
     // XORWF
@@ -190,6 +245,7 @@ decode::decodedCmd decode::decodeCommand() {
         decodeCommand.dBit = stoi(this->toDecode.substr(6, 1), nullptr, 2);
         decodeCommand.filepos = stoi(this->toDecode.substr(7, 7), nullptr, 2);
         decodeCommand.literal = -1;
+        decodeCommand.cmdobject = new xorwf();
     }
 
     // SUBLW
@@ -198,6 +254,7 @@ decode::decodedCmd decode::decodeCommand() {
         decodeCommand.dBit = -1;
         decodeCommand.filepos = -1;
         decodeCommand.literal = stoi(this->toDecode.substr(6, 8), nullptr, 2);
+        decodeCommand.cmdobject = new sublw();
     }
 
     // ADDLW
@@ -206,6 +263,7 @@ decode::decodedCmd decode::decodeCommand() {
         decodeCommand.dBit = -1;
         decodeCommand.filepos = -1;
         decodeCommand.literal = stoi(this->toDecode.substr(6, 8), nullptr, 2);
+        decodeCommand.cmdobject = new addlw();
     }
 
     // BTFSC
@@ -214,6 +272,7 @@ decode::decodedCmd decode::decodeCommand() {
         decodeCommand.literal = stoi(this->toDecode.substr(4, 3), nullptr, 2);
         decodeCommand.filepos = stoi(this->toDecode.substr(7, 7), nullptr, 2);
         decodeCommand.dBit = -1;
+        decodeCommand.cmdobject = new btfsc();
     }
 
     // BTFSS
@@ -222,6 +281,7 @@ decode::decodedCmd decode::decodeCommand() {
         decodeCommand.literal = stoi(this->toDecode.substr(4, 3), nullptr, 2);
         decodeCommand.filepos = stoi(this->toDecode.substr(7, 7), nullptr, 2);
         decodeCommand.dBit = -1;
+        decodeCommand.cmdobject = new btfss();
     }
 
     // BCF
@@ -230,6 +290,7 @@ decode::decodedCmd decode::decodeCommand() {
         decodeCommand.literal = stoi(this->toDecode.substr(4, 3), nullptr, 2);
         decodeCommand.filepos = (stoi(this->toDecode.substr(7, 7), nullptr, 2));
         decodeCommand.dBit = -1;
+        decodeCommand.cmdobject = new bcf();
     }
 
     // BSF
@@ -238,6 +299,7 @@ decode::decodedCmd decode::decodeCommand() {
         decodeCommand.literal = stoi(this->toDecode.substr(4, 3), nullptr, 2);
         decodeCommand.filepos = stoi(this->toDecode.substr(7, 7), nullptr, 2);
         decodeCommand.dBit = -1;
+        decodeCommand.cmdobject = new bsf();
     }
 
     // RETLW
@@ -246,6 +308,7 @@ decode::decodedCmd decode::decodeCommand() {
         decodeCommand.dBit = -1;
         decodeCommand.filepos = -1;
         decodeCommand.literal = stoi(this->toDecode.substr(6, 8), nullptr, 2);
+        decodeCommand.cmdobject = new retlw();
     }
 
     // MOVLW
@@ -254,6 +317,7 @@ decode::decodedCmd decode::decodeCommand() {
         decodeCommand.dBit = -1;
         decodeCommand.filepos = -1;
         decodeCommand.literal = stoi(this->toDecode.substr(6, 8), nullptr, 2);
+        decodeCommand.cmdobject = new movlw();
     }
 
     // CALL
@@ -262,6 +326,7 @@ decode::decodedCmd decode::decodeCommand() {
         decodeCommand.dBit = -1;
         decodeCommand.filepos = -1;
         decodeCommand.literal = stoi(this->toDecode.substr(3, 11), nullptr, 2);
+        decodeCommand.cmdobject = new cmdcall();
     }
 
     // GOTO
@@ -270,6 +335,7 @@ decode::decodedCmd decode::decodeCommand() {
         decodeCommand.dBit = -1;
         decodeCommand.filepos = -1;
         decodeCommand.literal = stoi(this->toDecode.substr(3, 11), nullptr, 2);
+        decodeCommand.cmdobject = new cmdgo();
     }
     return decodeCommand;
 }
