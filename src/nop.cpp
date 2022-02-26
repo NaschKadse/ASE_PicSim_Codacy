@@ -1,6 +1,6 @@
 #include "../header/nop.h"
 
-void nop::executeCMD(const decodedCmdSimple ldecoded) {
+void nop::executeCMD(decodedCmdSimple const ldecoded) {
     picDatalocal->setProgramCounter(picDatalocal->getProgramCounter().to_ulong() + 1);
     ramlocal->setRam(2, picSim::createPCL(picDatalocal->getProgramCounter().to_string()).to_ulong());
     picDatalocal->setCycle(picDatalocal->getCycle() + 1);
