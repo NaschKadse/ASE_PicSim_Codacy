@@ -1,6 +1,6 @@
 #include "../header/cmdreturn.h"
 
-void cmdreturn::executeCMD(decodedCmdSimple const ldecoded) {
+void cmdreturn::executeCMD(const decodedCmdSimple ldecoded) {
     picDatalocal->setProgramCounter(customStacklocal->top().to_ulong());
     ramlocal->setRam(2, picSim::createPCL(picDatalocal->getProgramCounter().to_string()).to_ulong());
     customStacklocal->pop();

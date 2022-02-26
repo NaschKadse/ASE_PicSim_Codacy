@@ -1,6 +1,6 @@
 #include "../header/retfie.h"
 
-void retfie::executeCMD(decodedCmdSimple const ldecoded) {
+void retfie::executeCMD(const decodedCmdSimple ldecoded) {
     ramlocal->modifyBit(11, 7, true); // GIE zurücksetzen
     picDatalocal->setProgramCounter(customStacklocal->top().to_ulong());
     ramlocal->setRam(2, picSim::createPCL(picDatalocal->getProgramCounter().to_string()).to_ulong());
