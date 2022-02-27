@@ -2,6 +2,7 @@
 #define ASE_PICSIM_COMMAND_H
 
 #include <string>
+#include "../header/utility.h"
 
 struct decodedCmdSimple {
     std::string cmd;
@@ -12,7 +13,7 @@ struct decodedCmdSimple {
 
 class command {
 public:
-    virtual void executeCMD(decodedCmdSimple simpleDecodedStruct);
+    virtual void executeCMD(decodedCmdSimple simpleDecodedStruct) = 0;
 };
 
 #endif //ASE_PICSIM_COMMAND_H

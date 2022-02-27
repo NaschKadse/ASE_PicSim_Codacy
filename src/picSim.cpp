@@ -1,4 +1,7 @@
 #include "../header/picSim.h"
+#include "../header/readFileInterface.h"
+#include "../header/LSTFileHandler.h"
+#include "../header/handler.h"
 
 void picSim::executecmd(decode::decodedCmd decoded) {
     decodedCmdSimple localstruct;
@@ -10,9 +13,10 @@ void picSim::executecmd(decode::decodedCmd decoded) {
     delete decoded.cmdobject;
 }
 int picSim::run(std::string path, int guicounter) {
-    inputfile file(path);
-    file.readFile();
-    thecommand = file.commandarray[guicounter];
+    LSTFileHandler lsthandler;
+    handler inputhandler(&lsthandler);
+    inputhandler.read(path);
+    thecommand = picData1->getCommandArray(guicounter);
     decode decode1(thecommand);
     if (ram1->getRam(129).test(5) == 1) // Timer aus?
     {

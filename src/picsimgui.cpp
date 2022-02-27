@@ -1,6 +1,8 @@
 #include "../header/picsimgui.h"
 #include "../forms/ui_PicSimGui.h"
+#include "../header/utility.h"
 #include <QButtonGroup>
+#include <fstream>
 
 PicSimGui::PicSimGui(QWidget *parent) : QMainWindow(parent), ui(new Ui::PicSimGui) {
 

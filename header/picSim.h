@@ -1,7 +1,6 @@
 #ifndef PICSIM2_0_PICSIM_H
 #define PICSIM2_0_PICSIM_H
 
-#include "inputfile.h"
 #include "decode.h"
 #include "ram.h"
 #include "stack"

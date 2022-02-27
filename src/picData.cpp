@@ -38,4 +38,10 @@ void picData::setMultiplier(float lmultiplier) {
 float picData::getMultiplier() {
     return this->multiplier;
 }
+void picData::setCommandArray(int pos, std::string larray) {
+    commandarray[pos] = larray;
+}
+std::string picData::getCommandArray(int pos) {
+    return commandarray[pos];
+}
 

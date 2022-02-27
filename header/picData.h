@@ -23,6 +23,8 @@ public:
     float getRuntime();
     void setMultiplier(float lmultiplier);
     float getMultiplier();
+    void setCommandArray(int pos, std::string larray);
+    std::string getCommandArray(int pos);
 private:
     picData() {};
     ~picData() {};
@@ -32,6 +34,7 @@ private:
     int cycle = 0;
     float runtime = 0;
     float multiplier = 1.000;
+    std::string commandarray[1024] = {};
 };
 
 #endif //ASE_PICSIM_PICDATA_H
