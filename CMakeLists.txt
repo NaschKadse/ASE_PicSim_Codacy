@@ -1,7 +1,8 @@
 cmake_minimum_required(VERSION 3.17)
 project(ASE_PicSim)
 
-set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD 17)
+
 if (WIN32)
     set(CMAKE_PREFIX_PATH "D:\\Qt\\5.15.2\\msvc2019_64")
     else()
@@ -15,12 +16,16 @@ set(QT_VERSION 5)
 set(REQUIRED_LIBS Core Gui Widgets)
 set(CMAKE_OSX_ARCHITECTURES x86_64)
 
-set(REQUIRED_LIBS_QUALIFIED Qt5::Core Qt5::Gui Qt5::Widgets)
+set(REQUIRED_LIBS_QUALIFIED Qt5::Core Qt5::Gui Qt5::Widgets PicSim_lib)
 
 
 
-add_executable(ASE_PicSim src/4_Main/main.cpp src/2_Application_Code/utility.cpp header/utility.h src/2_Application_Code/decode.cpp header/decode.h src/0_Abstraction_Code/ram.cpp header/ram.h src/2_Application_Code/picSim.cpp header/picSim.h src/3_Plugins/picsimgui.cpp header/picsimgui.h
-        src/3_Plugins/infodialog.cpp header/infodialog.h header/info.h src/3_Plugins/info.cpp forms/info.ui src/0_Abstraction_Code/picData.cpp header/picData.h src/1_Domain_Code/movlw.cpp header/movlw.h src/1_Domain_Code/rrf.cpp header/rrf.h src/1_Domain_Code/rlf.cpp header/rlf.h src/1_Domain_Code/andlw.cpp header/andlw.h src/1_Domain_Code/iorlw.cpp header/iorlw.h src/1_Domain_Code/sublw.cpp header/sublw.h src/1_Domain_Code/xorlw.cpp header/xorlw.h src/1_Domain_Code/addlw.cpp header/addlw.h src/1_Domain_Code/cmdgo.cpp header/cmdgo.h src/1_Domain_Code/cmdcall.cpp header/cmdcall.h src/0_Abstraction_Code/customStack.cpp header/customStack.h src/1_Domain_Code/cmdreturn.cpp header/cmdreturn.h src/1_Domain_Code/retlw.cpp header/retlw.h src/1_Domain_Code/retfie.cpp header/retfie.h src/1_Domain_Code/nop.cpp header/nop.h src/1_Domain_Code/movwf.cpp header/movwf.h src/1_Domain_Code/addwf.cpp header/addwf.h src/1_Domain_Code/andwf.cpp header/andwf.h src/1_Domain_Code/clrf.cpp header/clrf.h src/1_Domain_Code/comf.cpp header/comf.h src/1_Domain_Code/decf.cpp header/decf.h src/1_Domain_Code/incf.cpp header/incf.h src/1_Domain_Code/movf.cpp header/movf.h src/1_Domain_Code/clrw.cpp header/clrw.h src/1_Domain_Code/iorwf.cpp header/iorwf.h src/1_Domain_Code/xorwf.cpp header/xorwf.h src/1_Domain_Code/subwf.cpp header/subwf.h src/1_Domain_Code/swapf.cpp header/swapf.h src/1_Domain_Code/incfsz.cpp header/incfsz.h src/1_Domain_Code/decfsz.cpp header/decfsz.h src/1_Domain_Code/bsf.cpp header/bsf.h src/1_Domain_Code/bcf.cpp header/bcf.h src/1_Domain_Code/btfsc.cpp header/btfsc.h src/1_Domain_Code/btfss.cpp header/btfss.h src/1_Domain_Code/command.cpp header/command.h src/3_Plugins/LSTFileHandler.cpp header/LSTFileHandler.h header/readFileInterface.h src/2_Application_Code/handler.cpp header/handler.h)
+add_executable(${PROJECT_NAME} main.cpp GUI/info.cpp GUI/info.h GUI/infodialog.cpp GUI/infodialog.h GUI/picsimgui.cpp GUI/picsimgui.h)
+
+include_directories(PicSim_lib)
+add_subdirectory(PicSim_lib)
+
+
 
 if (NOT CMAKE_PREFIX_PATH)
     message(WARNING "CMAKE_PREFIX_PATH is not defined, you may need to set it "
@@ -57,3 +62,10 @@ if (WIN32)
                 "$<TARGET_FILE_DIR:${PROJECT_NAME}>")
     endforeach (QT_LIB)
 endif ()
+
+
+add_subdirectory(Google_tests)
+
+target_link_libraries(${PROJECT_NAME}
+        PicSim_lib
+        )
