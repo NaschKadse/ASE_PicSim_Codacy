@@ -1,4 +1,4 @@
-#include "GUI/picsimgui.h"
+#include "3_Plugins/picsimgui.h"
 #include <QApplication>
 
 int main(int argc, char *argv[]) {

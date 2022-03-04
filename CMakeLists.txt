@@ -20,7 +20,7 @@ set(REQUIRED_LIBS_QUALIFIED Qt5::Core Qt5::Gui Qt5::Widgets PicSim_lib)
 
 
 
-add_executable(${PROJECT_NAME} main.cpp GUI/info.cpp GUI/info.h GUI/infodialog.cpp GUI/infodialog.h GUI/picsimgui.cpp GUI/picsimgui.h)
+add_executable(${PROJECT_NAME} main.cpp PicSim_lib/3_Plugins/info.cpp PicSim_lib/3_Plugins/info.h PicSim_lib/3_Plugins/infodialog.cpp PicSim_lib/3_Plugins/infodialog.h PicSim_lib/3_Plugins/picsimgui.cpp PicSim_lib/3_Plugins/picsimgui.h)
 
 include_directories(PicSim_lib)
 add_subdirectory(PicSim_lib)
