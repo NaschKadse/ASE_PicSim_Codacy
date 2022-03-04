@@ -11,9 +11,9 @@ public:
     ~decode();
     struct decodedCmd {
         std::string cmd;
-        int dBit;
-        int filepos;
-        int literal;
+        int dBit = -1;
+        int filepos = -1;
+        int literal = -1;
         command* cmdobject;
     };
     decodedCmd decodeCommand();
