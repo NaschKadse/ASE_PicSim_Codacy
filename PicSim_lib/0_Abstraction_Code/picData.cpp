@@ -45,3 +45,13 @@ std::string picData::getCommandArray(int pos) {
     return commandarray[pos];
 }
 
+void picData::releaseInstance()
+{
+
+    if(nullptr != picDataObject)
+    {
+        delete picDataObject;
+        picDataObject = nullptr;
+    }
+}
+

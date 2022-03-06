@@ -25,6 +25,7 @@ public:
     float getMultiplier();
     void setCommandArray(int pos, std::string larray);
     std::string getCommandArray(int pos);
+    void picData::releaseInstance();
 private:
     picData() {};
     ~picData() {};

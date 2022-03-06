@@ -216,3 +216,13 @@ void ram::modifyBitGui(int filepos, int bit, bool set) {
     }
 }
 
+void ram::releaseInstance()
+{
+
+    if(nullptr != ramObject)
+    {
+        delete ramObject;
+        ramObject = nullptr;
+    }
+}
+

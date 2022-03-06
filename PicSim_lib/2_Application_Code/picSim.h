@@ -28,8 +28,10 @@ public:
     static int createPC(std::string filepos10, std::string filepos2);
     static BYTE createPCL(std::string PCstring);
     static std::string pclath43(std::string PCLATH);
-private:
+
     void executecmd(decode::decodedCmd decoded);
+
+private:
     std::string thecommand;
     customStack *customStack1 = customStack::getcustomStackObject();
     picData *picData1 = picData::getPicDataObject();

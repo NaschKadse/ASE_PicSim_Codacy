@@ -38,6 +38,7 @@ public:
     void setDCarry(bool value);
     int prescaler();
     void clearRam();
+    void ram::releaseInstance();
 private:
     picData *picData1 = picData::getPicDataObject();
     BYTE ramArray[256];
