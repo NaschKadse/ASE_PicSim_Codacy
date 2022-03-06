@@ -1,6 +1,7 @@
 #include "gtest/gtest.h"
 #include "3_Plugins/LSTFileHandler.h"
 #include "2_Application_Code/handler.h"
+#include "2_Application_Code/utility.h"
 
 
 class ReadFixture : public ::testing::Test{
@@ -12,6 +13,7 @@ protected:
     }
     LSTFileHandler lsthandler;
     picData *picData1 = picData::getPicDataObject();
+    utility utility1;
 };
 
 TEST_F(ReadFixture, FirstCommandLine){
@@ -19,7 +21,7 @@ TEST_F(ReadFixture, FirstCommandLine){
     handler inputhandler(&lsthandler);
 
     // Act
-    inputhandler.read("../../LST/TPicSim1.LST");
+    inputhandler.read("../../LST/TPicSim1.LST", utility1);
 
     // Assert
     EXPECT_EQ(picData1->getCommandArray(1), "11100100110000");
@@ -30,7 +32,7 @@ TEST_F(ReadFixture, SecondCommandLine){
     handler inputhandler(&lsthandler);
 
     // Act
-    inputhandler.read("../../LST/TPicSim1.LST");
+    inputhandler.read("../../LST/TPicSim1.LST", utility1);
 
     // Assert
     EXPECT_EQ(picData1->getCommandArray(2), "11100000001101");
@@ -41,7 +43,7 @@ TEST_F(ReadFixture, ThirdCommandLine){
     handler inputhandler(&lsthandler);
 
     // Act
-    inputhandler.read("../../LST/TPicSim1.LST");
+    inputhandler.read("../../LST/TPicSim1.LST", utility1);
 
     // Assert
     EXPECT_EQ(picData1->getCommandArray(3), "11110000111101");
@@ -52,7 +54,7 @@ TEST_F(ReadFixture, WrongPath){
     handler inputhandler(&lsthandler);
 
     // Act
-    inputhandler.read("../LST/TPicSim1.LST");
+    inputhandler.read("../LST/TPicSim1.LST", utility1);
 
     // Assert
     EXPECT_EQ(picData1->getCommandArray(1),"");

@@ -10,7 +10,8 @@
 
 class LSTFileHandler : public readFileInterface {
 public:
-    void readFile(std::string filepath);
+    void readFile(std::string filepath, utility &utility1);
+    std::string BinaryString;
 private:
     picData *picData1 = picData::getPicDataObject();
 

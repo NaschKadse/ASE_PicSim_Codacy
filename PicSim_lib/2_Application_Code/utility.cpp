@@ -1,13 +1,29 @@
 #include "utility.h"
-
+/*
 utility::utility(int tobin) {
     this->tobin_l = tobin;
-}
+}*/
+
+/*
 utility::utility(std::string tofill, int digits) {
     this->tofill_l = std::move(tofill);
     this->digits_l = digits;
-}
+}*/
 utility::~utility() = default;
+
+void utility::setToBin(int tobin){
+    tobin_l = tobin;
+}
+
+void utility::setDigits(int digits){
+    digits_l = digits;
+}
+
+void utility::setToFill(std::string tofill){
+    tofill_l = tofill;
+}
+
+
 std::string utility::toBinary() {
     std::string returnString;
     while (this->tobin_l != 0) {

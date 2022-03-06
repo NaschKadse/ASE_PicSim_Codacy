@@ -9,7 +9,7 @@ public:
     handler(readFileInterface *handlerobject) {
         localhandler = handlerobject;
     }
-    void read(std::string filepath);
+    void read(std::string filepath, utility &utility1);
 private:
     readFileInterface *localhandler;
 };

@@ -15,7 +15,8 @@ void picSim::executecmd(decode::decodedCmd decoded) {
 int picSim::run(std::string path, int guicounter) {
     LSTFileHandler lsthandler;
     handler inputhandler(&lsthandler);
-    inputhandler.read(path);
+    utility *bla = new utility;
+    inputhandler.read(path, *bla);
     thecommand = picData1->getCommandArray(guicounter);
     decode decode1(thecommand);
     if (ram1->getRam(129).test(5) == 1) // Timer aus?
@@ -221,6 +222,3 @@ void picSim::reset() {
     resetRuntime();
 }
 
-int picSim::calc() {
-    return 2;
-}

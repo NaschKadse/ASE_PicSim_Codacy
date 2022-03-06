@@ -13,7 +13,6 @@ typedef std::bitset<13> PC;
 
 class picSim {
 public:
-    static int calc();
     int ping(int ramIndex);
     int run(std::string path, int guicounter);
     int getPSA();

@@ -14,6 +14,7 @@ struct decodedCmdSimple {
 class command {
 public:
     virtual void executeCMD(decodedCmdSimple simpleDecodedStruct) = 0;
+    virtual ~command() {}
 };
 
 #endif //ASE_PICSIM_COMMAND_H

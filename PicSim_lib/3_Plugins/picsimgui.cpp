@@ -784,8 +784,13 @@ void PicSimGui::pong() {
         hexString = intToHexString(picSim1.ping(i));
         std::transform(hexString.begin(), hexString.end(), hexString.begin(),
                        [](unsigned char c) { return std::toupper(c); });
-        utility fillUp(hexString, 2);
-        hexString = fillUp.fillup();
+
+        utility utility1;
+        utility1.setToBin(stoi(hexString, nullptr, 16));
+        utility1.setDigits(2);
+        utility1.setToFill(hexString);
+        hexString = utility1.fillup();
+
         QString qHexToString = QString::fromStdString(hexString);
         std::string buttonName = "pushButton_" + std::to_string(i);
         QString qString = QString::fromStdString(buttonName);
@@ -891,8 +896,13 @@ void PicSimGui::pong() {
         hexString = intToHexString(picDataGui->getWreg().to_ulong());
         std::transform(hexString.begin(), hexString.end(), hexString.begin(),
                        [](unsigned char c) { return std::toupper(c); });
-        utility fillUp(hexString, 2);
-        hexString = fillUp.fillup();
+
+        utility utility1;
+        utility1.setToBin(stoi(hexString, nullptr, 16));
+        utility1.setDigits(2);
+        utility1.setToFill(hexString);
+        hexString = utility1.fillup();
+
         QString qHexToString = QString::fromStdString(hexString);
         ui->pushButton_296->setText(qHexToString);
     }
@@ -902,8 +912,14 @@ void PicSimGui::pong() {
         hexString = intToHexString(picSim1.ping(i));
         std::transform(hexString.begin(), hexString.end(), hexString.begin(),
                        [](unsigned char c) { return std::toupper(c); });
-        utility fillUp(hexString, 2);
-        hexString = fillUp.fillup();
+
+        utility utility1;
+        utility1.setToBin(stoi(hexString, nullptr, 16));
+        utility1.setDigits(2);
+        utility1.setToFill(hexString);
+        hexString = utility1.fillup();
+
+        hexString = utility1.fillup();
         QString qHexToString = QString::fromStdString(hexString);
         ui->pushButton_297->setText(qHexToString);
     }
@@ -913,8 +929,13 @@ void PicSimGui::pong() {
         hexString = intToHexString(picSim1.ping(i));
         std::transform(hexString.begin(), hexString.end(), hexString.begin(),
                        [](unsigned char c) { return std::toupper(c); });
-        utility fillUp(hexString, 2);
-        hexString = fillUp.fillup();
+
+        utility utility1;
+        utility1.setToBin(stoi(hexString, nullptr, 16));
+        utility1.setDigits(2);
+        utility1.setToFill(hexString);
+        hexString = utility1.fillup();
+
         QString qHexToString = QString::fromStdString(hexString);
         ui->pushButton_298->setText(qHexToString);
     }
@@ -924,8 +945,13 @@ void PicSimGui::pong() {
         hexString = intToHexString(picSim1.ping(i));
         std::transform(hexString.begin(), hexString.end(), hexString.begin(),
                        [](unsigned char c) { return std::toupper(c); });
-        utility fillUp(hexString, 2);
-        hexString = fillUp.fillup();
+
+        utility utility1;
+        utility1.setToBin(stoi(hexString, nullptr, 16));
+        utility1.setDigits(2);
+        utility1.setToFill(hexString);
+        hexString = utility1.fillup();
+
         QString qHexToString = QString::fromStdString(hexString);
         ui->pushButton_299->setText(qHexToString);
     }
@@ -935,8 +961,13 @@ void PicSimGui::pong() {
         hexString = intToHexString(picSim1.ping(i));
         std::transform(hexString.begin(), hexString.end(), hexString.begin(),
                        [](unsigned char c) { return std::toupper(c); });
-        utility fillUp(hexString, 2);
-        hexString = fillUp.fillup();
+
+        utility utility1;
+        utility1.setToBin(stoi(hexString, nullptr, 16));
+        utility1.setDigits(2);
+        utility1.setToFill(hexString);
+        hexString = utility1.fillup();
+
         QString qHexToString = QString::fromStdString(hexString);
         ui->pushButton_300->setText(qHexToString);
     }
@@ -946,8 +977,13 @@ void PicSimGui::pong() {
         hexString = intToHexString(picSim1.ping(i));
         std::transform(hexString.begin(), hexString.end(), hexString.begin(),
                        [](unsigned char c) { return std::toupper(c); });
-        utility fillUp(hexString, 2);
-        hexString = fillUp.fillup();
+
+        utility utility1;
+        utility1.setToBin(stoi(hexString, nullptr, 16));
+        utility1.setDigits(2);
+        utility1.setToFill(hexString);
+        hexString = utility1.fillup();
+
         QString qHexToString = QString::fromStdString(hexString);
         ui->pushButton_301->setText(qHexToString);
     }
@@ -957,8 +993,13 @@ void PicSimGui::pong() {
         hexString = intToHexString(picSim1.ping(i));
         std::transform(hexString.begin(), hexString.end(), hexString.begin(),
                        [](unsigned char c) { return std::toupper(c); });
-        utility fillUp(hexString, 2);
-        hexString = fillUp.fillup();
+
+        utility utility1;
+        utility1.setToBin(stoi(hexString, nullptr, 16));
+        utility1.setDigits(2);
+        utility1.setToFill(hexString);
+        hexString = utility1.fillup();
+
         QString qHexToString = QString::fromStdString(hexString);
         ui->pushButton_302->setText(qHexToString);
     }
@@ -1012,8 +1053,13 @@ void PicSimGui::pong() {
         hexString = intToHexString(count);
         std::transform(hexString.begin(), hexString.end(), hexString.begin(),
                        [](unsigned char c) { return std::toupper(c); });
-        utility fillUp(hexString, 4);
-        hexString = fillUp.fillup();
+
+        utility utility1;
+        utility1.setToBin(stoi(hexString, nullptr, 16));
+        utility1.setDigits(4);
+        utility1.setToFill(hexString);
+        hexString = utility1.fillup();
+
         QString qHexToString = QString::fromStdString(hexString);
         ui->label_113->setText(qHexToString);
     }

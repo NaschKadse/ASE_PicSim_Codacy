@@ -3,10 +3,11 @@
 #define ASE_PICSIM_READFILEINTERFACE_H
 
 #include <string>
+#include "2_Application_Code/utility.h"
 
 class readFileInterface {
 public:
-    virtual void readFile(std::string filepath) = 0;
+    virtual void readFile(std::string filepath, utility &utility1) = 0;
 };
 
 #endif //ASE_PICSIM_READFILEINTERFACE_H
