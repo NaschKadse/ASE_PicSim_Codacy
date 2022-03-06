@@ -1,7 +1,9 @@
 #include "LSTFileHandler.h"
+
 void LSTFileHandler::readFile(std::string filepath) {
     std::string line;
     std::ifstream input(filepath);
+
     if (!input) {
         std::cerr << "Fehler beim Oeffnen der Datei " << filepath << "\n";
     } else {
@@ -15,6 +17,4 @@ void LSTFileHandler::readFile(std::string filepath) {
             }
         }
     }
-
 }
-
