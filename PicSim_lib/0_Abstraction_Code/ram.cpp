@@ -11,11 +11,12 @@ int ram::setRam(int filepos_ram, int content_l, int cycle_l) {
     if (filepos_ram == 2 || filepos_ram == 3 || filepos_ram == 4 || filepos_ram == 10 || filepos_ram == 11) {
         this->ramArray[filepos_ram] = content_l;
         this->ramArray[filepos_ram + 128] = content_l;
-    }
-    if (this->ramArray[3].test(5) == 0) {
-        this->ramArray[checkFilepos(filepos_ram)] = content_l;
-    } else { //RP0 == 1
-        this->ramArray[checkFilepos(filepos_ram) + 128] = content_l;
+    } else {
+        if (this->ramArray[3].test(5) == 0) {
+            this->ramArray[checkFilepos(filepos_ram)] = content_l;
+        } else { //RP0 == 1
+            this->ramArray[checkFilepos(filepos_ram) + 128] = content_l;
+        }
     }
     if (filepos_ram == 1) {
         return 0;
@@ -188,11 +189,12 @@ void ram::setRam(int filepos_ram, int content_l) {
     if (filepos_ram == 2 || filepos_ram == 3 || filepos_ram == 4 || filepos_ram == 10 || filepos_ram == 11) {
         this->ramArray[filepos_ram] = content_l;
         this->ramArray[filepos_ram + 128] = content_l;
-    }
-    if (this->ramArray[3].test(5) == 0) {
-        this->ramArray[checkFilepos(filepos_ram)] = content_l;
-    } else { //RP0 == 1
-        this->ramArray[checkFilepos(filepos_ram) + 128] = content_l;
+    } else {
+        if (this->ramArray[3].test(5) == 0) {
+            this->ramArray[checkFilepos(filepos_ram)] = content_l;
+        } else { //RP0 == 1
+            this->ramArray[checkFilepos(filepos_ram) + 128] = content_l;
+        }
     }
 }
 void ram::ramInput(std::string input, int buttonNumber) {
@@ -215,12 +217,8 @@ void ram::modifyBitGui(int filepos, int bit, bool set) {
         //setRam(filepos, ramcontent.to_ulong(), 0);
     }
 }
-
-void ram::releaseInstance()
-{
-
-    if(nullptr != ramObject)
-    {
+void ram::releaseInstance() {
+    if (nullptr != ramObject) {
         delete ramObject;
         ramObject = nullptr;
     }
