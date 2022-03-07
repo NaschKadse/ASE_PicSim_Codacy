@@ -27,8 +27,11 @@ public:
     static int createPC(std::string filepos10, std::string filepos2);
     static BYTE createPCL(std::string PCstring);
     static std::string pclath43(std::string PCLATH);
-
+    int getIntEdg();
+    void rb0interrupt();
     void executecmd(decode::decodedCmd decoded);
+    void setEdge(bool set);
+    int getEdge();
 
 private:
     std::string thecommand;
@@ -46,7 +49,7 @@ private:
     int IntEdg;
     int detectedge(int oldvalue, int port);
     void timer();
-    void rb0interrupt();
+
 };
 
 #endif //PICSIM2_0_PICSIM_H

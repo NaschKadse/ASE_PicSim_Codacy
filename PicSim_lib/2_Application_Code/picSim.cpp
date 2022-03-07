@@ -222,3 +222,19 @@ void picSim::reset() {
     resetRuntime();
 }
 
+int picSim::getIntEdg(){
+    return IntEdg;
+}
+
+void picSim::setEdge(bool set){
+    if(set){
+        edge = 1;
+    }else{
+        edge = 0;
+    }
+}
+
+int picSim::getEdge(){
+    return edge;
+}
+

@@ -3,7 +3,7 @@ add_subdirectory(lib)
 include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
 
 
-add_executable(Google_Tests_run CreatePCLTest.cpp DecodeTest.cpp CommandTest.cpp PicSimInitTest.cpp ReadTest.cpp UtilityMockTest.cpp ToBinaryMockTest.cpp StackTest.cpp)
+add_executable(Google_Tests_run CreatePCLTest.cpp DecodeTest.cpp CommandTest.cpp PicSimInitTest.cpp ReadTest.cpp UtilityMockTest.cpp ToBinaryMockTest.cpp StackTest.cpp Rb0InterruptTest.cpp)
 
 target_link_libraries(Google_Tests_run PicSim_lib)
 
