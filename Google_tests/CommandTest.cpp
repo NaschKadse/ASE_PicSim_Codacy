@@ -2,14 +2,13 @@
 #include "2_Application_Code/decode.h"
 #include "2_Application_Code/picSim.h"
 
-
-class CommandTestFixture : public ::testing::Test{
+class CommandTestFixture : public ::testing::Test {
 protected:
     virtual void SetUp() {
     }
     virtual void TearDown() {
-       picData1->releaseInstance();
-       ram1->releaseInstance();
+        picData1->releaseInstance();
+        ram1->releaseInstance();
     }
     picData *picData1 = picData::getPicDataObject();
     picSim picSim1;
@@ -31,7 +30,6 @@ TEST_F(CommandTestFixture, nop) {
     EXPECT_EQ(picData1->getRuntime(), 1);
     EXPECT_EQ(picData1->getMultiplier(), 1);
 }
-
 TEST_F(CommandTestFixture, incf) {
 
     // Arrange
@@ -48,7 +46,6 @@ TEST_F(CommandTestFixture, incf) {
     EXPECT_EQ(picData1->getRuntime(), 1);
     EXPECT_EQ(picData1->getMultiplier(), 1);
 }
-
 TEST_F(CommandTestFixture, movwf) {
 
     // Arrange
@@ -65,7 +62,6 @@ TEST_F(CommandTestFixture, movwf) {
     EXPECT_EQ(picData1->getRuntime(), 1);
     EXPECT_EQ(picData1->getMultiplier(), 1);
 }
-
 TEST_F(CommandTestFixture, decf) {
 
     // Arrange
@@ -82,7 +78,6 @@ TEST_F(CommandTestFixture, decf) {
     EXPECT_EQ(picData1->getRuntime(), 1);
     EXPECT_EQ(picData1->getMultiplier(), 1);
 }
-
 TEST_F(CommandTestFixture, movlw) {
 
     // Arrange
@@ -99,7 +94,6 @@ TEST_F(CommandTestFixture, movlw) {
     EXPECT_EQ(picData1->getRuntime(), 1);
     EXPECT_EQ(picData1->getMultiplier(), 1);
 }
-
 TEST_F(CommandTestFixture, xorlw) {
 
     // Arrange
@@ -116,4 +110,20 @@ TEST_F(CommandTestFixture, xorlw) {
     EXPECT_EQ(picData1->getRuntime(), 1);
     EXPECT_EQ(picData1->getMultiplier(), 1);
 }
+TEST_F(CommandTestFixture, subwf) {
 
+    // Arrange
+    decode decodeCommand("00001000001000");
+    picData1->setWreg(18);
+    ram1->setRam(8, 25);
+
+    // Act
+    picSim1.executecmd(decodeCommand.decodeCommand());
+
+    // Assert
+    EXPECT_EQ(picData1->getCycle(), 1);
+    EXPECT_EQ(picData1->getProgramCounter(), 1);
+    EXPECT_EQ(picData1->getWreg(), 7);
+    EXPECT_EQ(picData1->getRuntime(), 1);
+    EXPECT_EQ(picData1->getMultiplier(), 1);
+}
