@@ -50,3 +50,12 @@ std::array<stackarray, 8> customStack::getStack() {
 void customStack::setStack(std::array<stackarray, 8> lstack) {
     stack = lstack;
 }
+
+void customStack::releaseInstance(){
+
+    if(nullptr != customStackObject)
+    {
+        delete customStackObject;
+        customStackObject = nullptr;
+    }
+}

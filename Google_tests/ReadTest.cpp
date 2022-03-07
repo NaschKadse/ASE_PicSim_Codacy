@@ -1,7 +1,6 @@
 #include "gtest/gtest.h"
 #include "3_Plugins/LSTFileHandler.h"
 #include "2_Application_Code/handler.h"
-#include "2_Application_Code/utility.h"
 
 
 class ReadFixture : public ::testing::Test{

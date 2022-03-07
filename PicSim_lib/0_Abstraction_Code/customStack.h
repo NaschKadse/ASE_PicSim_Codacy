@@ -16,6 +16,7 @@ public:
     void clearStack();
     std::array<stackarray, 8> getStack();
     void setStack(std::array<stackarray, 8> lstack);
+    void releaseInstance();
 private:
     customStack() {};
     ~customStack() {};
