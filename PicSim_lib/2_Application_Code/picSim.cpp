@@ -188,30 +188,6 @@ std::string picSim::getPCLATH() {
     PCLATH5 = PCLATH8.substr(3, 5);
     return PCLATH5;
 }
-bool picSim::checkFilepos(int filepos_m){
-    if(filepos_m == 2){
-        return true;
-    }
-    return false;
-}
-
-int picSim::createPC(const std::string filepos10, std::string filepos2) {
-    std::string PCLATH = filepos10;
-    std::string PCL = filepos2;
-    std::string PCLATH40 = PCLATH.substr(3, 5);
-    std::string PCstring = PCLATH40 + PCL;
-    PC PCbits = std::stoi(PCstring, 0, 2);
-    return PCbits.to_ulong();
-}
-BYTE picSim::createPCL(std::string PCstring) {
-    std::string PCL = PCstring.substr(5, 8);
-    BYTE PCLreturn = stoi(PCL, 0, 2);
-    return PCLreturn;
-}
-std::string picSim::pclath43(std::string PCLATH) {
-    std::string PCLATH43 = PCLATH.substr(0, 2);
-    return PCLATH43;
-}
 void picSim::reset() {
     picData1->setCycle(0);
     oldPrescale = 0;

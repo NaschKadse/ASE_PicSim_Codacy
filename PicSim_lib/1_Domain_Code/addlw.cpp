@@ -3,7 +3,7 @@
 void addlw::executeCMD(decodedCmdSimple ldecoded) {
     additionReturn additionret = ramlocal->doaddition(ldecoded.literal, picDatalocal->getWreg());
     picDatalocal->setWreg(additionret.result);
-    ramlocal->zeroFlag(picDatalocal->getWreg().to_ulong());
+    ramlocal->zeroFlag((int)picDatalocal->getWreg().to_ulong());
     if (additionret.carry == 1) {
         ramlocal->setCarry(true);
     } else {
@@ -14,8 +14,7 @@ void addlw::executeCMD(decodedCmdSimple ldecoded) {
     } else {
         ramlocal->setDCarry(false);
     }
-    picDatalocal->setProgramCounter(picDatalocal->getProgramCounter().to_ulong() + 1);
-    ramlocal->setRam(2, picSim::createPCL(picDatalocal->getProgramCounter().to_string()).to_ulong());
-    picDatalocal->setCycle(picDatalocal->getCycle() + 1);
-    picDatalocal->setRuntime(picDatalocal->getRuntime() + picDatalocal->getMultiplier());
+    increasePC();
+    increaseCycle1();
+    increaseRuntime();
 }
