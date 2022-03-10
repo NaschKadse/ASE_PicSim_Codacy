@@ -12,7 +12,7 @@ TEST(DecodeTestSuit, ClrfCorrectString){
     decode::decodedCmd decodedCmdStruct = decodeTest.decodeCommand();
 
     // Assert
-    EXPECT_EQ(decodedCmdStruct.cmd, "CLRF");
+    EXPECT_EQ(decodedCmdStruct.cmd, "normal");
     EXPECT_EQ(decodedCmdStruct.dBit, -1);
     EXPECT_EQ(decodedCmdStruct.filepos, 1);
     EXPECT_EQ(decodedCmdStruct.literal, -1);
@@ -28,7 +28,7 @@ TEST(DecodeTestSuit, BTFSSCorrectString){
     decode::decodedCmd decodedCmdStruct = decodeTest.decodeCommand();
 
     // Assert
-    EXPECT_EQ(decodedCmdStruct.cmd, "BTFSS");
+    EXPECT_EQ(decodedCmdStruct.cmd, "normal");
     EXPECT_EQ(decodedCmdStruct.dBit, -1);
     EXPECT_EQ(decodedCmdStruct.filepos, 4);
     EXPECT_EQ(decodedCmdStruct.literal, 1);
@@ -44,7 +44,7 @@ TEST(DecodeTestSuit, ADDCorrectString){
     decode::decodedCmd decodedCmdStruct = decodeTest.decodeCommand();
 
     // Assert
-    EXPECT_EQ(decodedCmdStruct.cmd, "ADDLW");
+    EXPECT_EQ(decodedCmdStruct.cmd, "normal");
     EXPECT_EQ(decodedCmdStruct.dBit, -1);
     EXPECT_EQ(decodedCmdStruct.filepos, -1);
     EXPECT_EQ(decodedCmdStruct.literal, 2);

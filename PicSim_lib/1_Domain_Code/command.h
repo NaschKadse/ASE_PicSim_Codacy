@@ -19,6 +19,7 @@ public:
     void executeCMD(decodedCmdSimple simpleDecodedStruct);
     virtual void updateProgramCounter() = 0;
     virtual ~command() = default;
+    static BYTE createPCL(const std::string &PCstring);
 protected:
     static int createPC(const std::string filepos10, std::string filepos2);
     static bool checkFilepos(int filepos_m);
@@ -30,7 +31,7 @@ protected:
     picData *picDatalocal = picData::getPicDataObject();
     customStack *customStacklocal = customStack::getcustomStackObject();
 private:
-    static BYTE createPCL(const std::string &PCstring);
+
 };
 
 #endif //ASE_PICSIM_COMMAND_H

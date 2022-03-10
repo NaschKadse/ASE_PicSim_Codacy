@@ -1,5 +1,5 @@
 #include "gtest/gtest.h"
-#include "2_Application_Code/picSim.h"
+#include "1_Domain_Code/command.h"
 
 TEST(CratePCLTestSuit, CorrectString){
     // Arrange
@@ -7,7 +7,7 @@ TEST(CratePCLTestSuit, CorrectString){
     BYTE b = 170;
 
     // Act
-    a = picSim::createPCL("0101010101010");
+    a = command::createPCL("0101010101010");
 
     // Assert
     EXPECT_EQ(a,b);
@@ -19,7 +19,7 @@ TEST(CratePCLTestSuit, IncorrectString){
     BYTE b = 170;
 
     // Act
-    a = picSim::createPCL("0101010101000");
+    a = command::createPCL("0101010101000");
 
     // Assert
     EXPECT_TRUE(a != b);
@@ -31,7 +31,7 @@ TEST(CratePCLTestSuit, IncorrectStringLengthToShort){
     BYTE b = 170;
 
     // Act
-    a = picSim::createPCL("101010101010");
+    a = command::createPCL("101010101010");
 
     // Assert
     EXPECT_TRUE(a != b);
@@ -43,7 +43,7 @@ TEST(CratePCLTestSuit, IncorrectStringLengthToLong){
     BYTE b = 170;
 
     // Act
-    a = picSim::createPCL("10101010101010");
+    a = command::createPCL("10101010101010");
 
     // Assert
     EXPECT_TRUE(a != b);

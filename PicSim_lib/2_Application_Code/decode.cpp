@@ -137,7 +137,8 @@ decode::decodedCmd decode::decodeCommand() {
         decodeCommand.dBit = stoi(this->toDecode.substr(6, 1), nullptr, 2);
         decodeCommand.filepos = stoi(this->toDecode.substr(7, 7), nullptr, 2);
         decodeCommand.literal = -1;
-        decodeCommand.cmdobject = new addwf();
+        decodeCommand.cmdobject = new addwf() ;
+
     }
 
     // ANDWF
