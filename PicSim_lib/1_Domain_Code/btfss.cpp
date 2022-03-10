@@ -1,15 +1,15 @@
 #include "btfss.h"
 
-void btfss::executeCMD(decodedCmdSimple ldecoded) {
+void btfss::logic(decodedCmdSimple ldecoded) {
     BYTE ramcontent = ramlocal->getRam(ldecoded.filepos);
     if (ramcontent.test(ldecoded.literal) == 1) {
         //NOP
-        increasePC();
-        increaseCycle1();
-        increaseRuntime();
+        updateProgramCounter();
+        updateCycle("normal");
+        updateRuntime("normal");
         // NOP ENDE
     }
-    increasePC();
-    increaseCycle1();
-    increaseRuntime();
+}
+void btfss::updateProgramCounter() {
+    picDatalocal->setProgramCounter(picDatalocal->getProgramCounter().to_ulong() + 1);
 }

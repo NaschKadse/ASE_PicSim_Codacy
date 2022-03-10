@@ -9,7 +9,10 @@ typedef std::bitset<13> PC;
 
 class cmdgo : public command {
 public:
-    void executeCMD(decodedCmdSimple ldecoded) override;
+    void logic(decodedCmdSimple ldecoded) override;
+    void updateProgramCounter() override;
+private:
+    std::string inttobin;
 };
 
 #endif //ASE_PICSIM_GOTO_H

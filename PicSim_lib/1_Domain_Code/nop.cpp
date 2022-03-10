@@ -1,7 +1,7 @@
 #include "nop.h"
 
-void nop::executeCMD(const decodedCmdSimple ldecoded) {
-    increasePC();
-    increaseCycle1();
-    increaseRuntime();
+void nop::logic(const decodedCmdSimple ldecoded) {
+}
+void nop::updateProgramCounter() {
+    picDatalocal->setProgramCounter(picDatalocal->getProgramCounter().to_ulong() + 1);
 }

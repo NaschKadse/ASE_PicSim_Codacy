@@ -55,3 +55,4 @@ void picData::releaseInstance()
     }
 }
 
+

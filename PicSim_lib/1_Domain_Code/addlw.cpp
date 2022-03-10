@@ -1,9 +1,9 @@
 #include "addlw.h"
 
-void addlw::executeCMD(decodedCmdSimple ldecoded) {
+void addlw::logic(decodedCmdSimple ldecoded) {
     additionReturn additionret = ramlocal->doaddition(ldecoded.literal, picDatalocal->getWreg());
     picDatalocal->setWreg(additionret.result);
-    ramlocal->zeroFlag((int)picDatalocal->getWreg().to_ulong());
+    ramlocal->zeroFlag((int) picDatalocal->getWreg().to_ulong());
     if (additionret.carry == 1) {
         ramlocal->setCarry(true);
     } else {
@@ -14,7 +14,7 @@ void addlw::executeCMD(decodedCmdSimple ldecoded) {
     } else {
         ramlocal->setDCarry(false);
     }
-    increasePC();
-    increaseCycle1();
-    increaseRuntime();
+}
+void addlw::updateProgramCounter() {
+    picDatalocal->setProgramCounter(picDatalocal->getProgramCounter().to_ulong() + 1);
 }

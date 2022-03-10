@@ -1,9 +1,9 @@
 #include "clrw.h"
 
-void clrw::executeCMD(const decodedCmdSimple ldecoded) {
+void clrw::logic(const decodedCmdSimple ldecoded) {
     picDatalocal->setWreg(0);
     ramlocal->zeroFlag(0);
-    increasePC();
-    increaseCycle1();
-    increaseRuntime();
+}
+void clrw::updateProgramCounter() {
+    picDatalocal->setProgramCounter(picDatalocal->getProgramCounter().to_ulong() + 1);
 }

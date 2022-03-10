@@ -1,7 +1,3 @@
-//
-// Created by win on 11.02.2022.
-//
-
 #ifndef ASE_PICSIM_PICDATA_H
 #define ASE_PICSIM_PICDATA_H
 

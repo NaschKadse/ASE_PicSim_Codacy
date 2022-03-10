@@ -1,6 +1,6 @@
 #include "xorwf.h"
 
-void xorwf::executeCMD(decodedCmdSimple ldecoded) {
+void xorwf::logic(decodedCmdSimple ldecoded) {
     if (ldecoded.dBit == 0) {
         picDatalocal->setWreg(picDatalocal->getWreg().to_ulong() ^ ramlocal->getRam(ldecoded.filepos).to_ulong());
         ramlocal->zeroFlag(picDatalocal->getWreg().to_ulong());
@@ -14,7 +14,7 @@ void xorwf::executeCMD(decodedCmdSimple ldecoded) {
         }
         ramlocal->zeroFlag(ramlocal->getRam(ldecoded.filepos).to_ulong());
     }
-    increasePC();
-    increaseCycle1();
-    increaseRuntime();
+}
+void xorwf::updateProgramCounter() {
+    picDatalocal->setProgramCounter(picDatalocal->getProgramCounter().to_ulong() + 1);
 }

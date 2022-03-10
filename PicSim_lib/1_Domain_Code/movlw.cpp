@@ -1,11 +1,8 @@
 #include "movlw.h"
 
-void movlw::executeCMD(decodedCmdSimple ldecoded) {
+void movlw::logic(decodedCmdSimple ldecoded) {
     picDatalocal->setWreg(ldecoded.literal);
-    increasePC();
-    increaseCycle1();
-    increaseRuntime();
 }
-
-
-
+void movlw::updateProgramCounter() {
+    picDatalocal->setProgramCounter(picDatalocal->getProgramCounter().to_ulong() + 1);
+}

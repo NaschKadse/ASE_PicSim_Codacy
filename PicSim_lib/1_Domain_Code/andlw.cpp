@@ -1,9 +1,9 @@
 #include "andlw.h"
 
-void andlw::executeCMD(decodedCmdSimple ldecoded) {
+void andlw::logic(decodedCmdSimple ldecoded) {
     picDatalocal->setWreg(picDatalocal->getWreg().to_ulong() & ldecoded.literal);
     ramlocal->zeroFlag(picDatalocal->getWreg().to_ulong());
-    increasePC();
-    increaseCycle1();
-    increaseRuntime();
+}
+void andlw::updateProgramCounter() {
+    picDatalocal->setProgramCounter(picDatalocal->getProgramCounter().to_ulong() + 1);
 }

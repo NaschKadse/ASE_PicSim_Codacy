@@ -15,17 +15,16 @@ struct decodedCmdSimple {
 
 class command {
 public:
-    virtual void executeCMD(decodedCmdSimple simpleDecodedStruct) = 0;
+    virtual void logic(decodedCmdSimple simpleDecodedStruct) = 0;
+    void executeCMD(decodedCmdSimple simpleDecodedStruct);
+    virtual void updateProgramCounter() = 0;
     virtual ~command() = default;
 protected:
-    void increasePC() const;
-    void increasePC(std::string inttobin) const;
-    void increaseCycle1() const;
-    void increaseCycle2() const;
-    void increaseRuntime() const;
-    void increaseRuntime2() const;
     static int createPC(const std::string filepos10, std::string filepos2);
     static bool checkFilepos(int filepos_m);
+    void updateProgramCounterRAM();
+    void updateCycle(std::string command);
+    void updateRuntime(std::string command);
     static std::string pclath43(std::string PCLATH);
     ram *ramlocal = ram::getRamObject();
     picData *picDatalocal = picData::getPicDataObject();

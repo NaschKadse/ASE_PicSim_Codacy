@@ -1,6 +1,6 @@
 #include "andwf.h"
 
-void andwf::executeCMD(decodedCmdSimple ldecoded) {
+void andwf::logic(decodedCmdSimple ldecoded) {
     if (ldecoded.dBit == 0) {
         picDatalocal->setWreg(picDatalocal->getWreg() & ramlocal->getRam(ldecoded.filepos));
         ramlocal->zeroFlag(picDatalocal->getWreg().to_ulong());
@@ -14,7 +14,7 @@ void andwf::executeCMD(decodedCmdSimple ldecoded) {
         }
         ramlocal->zeroFlag(ramlocal->getRam(ldecoded.filepos).to_ulong());
     }
-    increasePC();
-    increaseCycle1();
-    increaseRuntime();
+}
+void andwf::updateProgramCounter() {
+    picDatalocal->setProgramCounter(picDatalocal->getProgramCounter().to_ulong() + 1);
 }

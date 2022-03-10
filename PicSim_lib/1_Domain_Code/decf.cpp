@@ -1,6 +1,6 @@
 #include "decf.h"
 
-void decf::executeCMD(decodedCmdSimple ldecoded) {
+void decf::logic(decodedCmdSimple ldecoded) {
     if (ldecoded.dBit == 0) {
         picDatalocal->setWreg(ramlocal->getRam(ldecoded.filepos).to_ulong() - 1);
         ramlocal->zeroFlag(picDatalocal->getWreg().to_ulong());
@@ -13,7 +13,8 @@ void decf::executeCMD(decodedCmdSimple ldecoded) {
         }
         ramlocal->zeroFlag(ramlocal->getRam(ldecoded.filepos).to_ulong());
     }
-    increasePC();
-    increaseCycle1();
-    increaseRuntime();
+}
+void decf::updateProgramCounter() {
+    picDatalocal->setProgramCounter(picDatalocal->getProgramCounter().to_ulong() + 1);
+
 }

@@ -43,7 +43,7 @@ decode::decodedCmd decode::decodeCommand() {
 
     // RETFIE
     if (this->toDecode.substr(0, 14) == "00000000001001") {
-        decodeCommand.cmd = "RETFIE";
+        decodeCommand.cmd = "double";
         decodeCommand.dBit = -1;
         decodeCommand.filepos = -1;
         decodeCommand.literal = -1;
@@ -52,7 +52,7 @@ decode::decodedCmd decode::decodeCommand() {
 
     // RETURN
     if (this->toDecode.substr(0, 14) == "00000000001000") {
-        decodeCommand.cmd = "RETURN";
+        decodeCommand.cmd = "double";
         decodeCommand.dBit = -1;
         decodeCommand.filepos = -1;
         decodeCommand.literal = -1;
@@ -61,7 +61,7 @@ decode::decodedCmd decode::decodeCommand() {
 
     // NOP
     if (this->toDecode.substr(0, 7) == "0000000" && this->toDecode.substr(9, 5) == "00000") {
-        decodeCommand.cmd = "NOP";
+        decodeCommand.cmd = "normal";
         decodeCommand.dBit = -1;
         decodeCommand.filepos = -1;
         decodeCommand.literal = -1;
@@ -70,7 +70,7 @@ decode::decodedCmd decode::decodeCommand() {
 
     // CLRF
     if (this->toDecode.substr(0, 7) == "0000011") {
-        decodeCommand.cmd = "CLRF";
+        decodeCommand.cmd = "normal";
         decodeCommand.dBit = -1;
         decodeCommand.filepos = stoi(this->toDecode.substr(7, 7), nullptr, 2);
         decodeCommand.literal = -1;
@@ -79,7 +79,7 @@ decode::decodedCmd decode::decodeCommand() {
 
     // CLRW
     if (this->toDecode.substr(0, 7) == "0000010") {
-        decodeCommand.cmd = "CLRW";
+        decodeCommand.cmd = "normal";
         decodeCommand.dBit = -1;
         decodeCommand.filepos = -1;
         decodeCommand.literal = -1;
@@ -88,7 +88,7 @@ decode::decodedCmd decode::decodeCommand() {
 
     // MOVWF
     if (this->toDecode.substr(0, 7) == "0000001") {
-        decodeCommand.cmd = "MOVWF";
+        decodeCommand.cmd = "normal";
         decodeCommand.dBit = -1;
         decodeCommand.filepos = stoi(this->toDecode.substr(7, 7), nullptr, 2);
         decodeCommand.literal = -1;
@@ -97,7 +97,7 @@ decode::decodedCmd decode::decodeCommand() {
 
     //SUBWF
     if (this->toDecode.substr(0, 6) == "000010") {
-        decodeCommand.cmd = "SUBWF";
+        decodeCommand.cmd = "normal";
         decodeCommand.dBit = stoi(this->toDecode.substr(6, 1), nullptr, 2);
         decodeCommand.filepos = stoi(this->toDecode.substr(7, 7), nullptr, 2);
         decodeCommand.literal = -1;
@@ -106,7 +106,7 @@ decode::decodedCmd decode::decodeCommand() {
 
     // IORWF
     if (this->toDecode.substr(0, 6) == "000100") {
-        decodeCommand.cmd = "IORWF";
+        decodeCommand.cmd = "normal";
         decodeCommand.dBit = stoi(this->toDecode.substr(6, 1), nullptr, 2);
         decodeCommand.filepos = stoi(this->toDecode.substr(7, 7), nullptr, 2);
         decodeCommand.literal = -1;
@@ -115,7 +115,7 @@ decode::decodedCmd decode::decodeCommand() {
 
     // MOVF
     if (this->toDecode.substr(0, 6) == "001000") {
-        decodeCommand.cmd = "MOVF";
+        decodeCommand.cmd = "normal";
         decodeCommand.dBit = stoi(this->toDecode.substr(6, 1), nullptr, 2);
         decodeCommand.filepos = stoi(this->toDecode.substr(7, 7), nullptr, 2);
         decodeCommand.literal = -1;
@@ -124,7 +124,7 @@ decode::decodedCmd decode::decodeCommand() {
 
     // SWAPF
     if (this->toDecode.substr(0, 6) == "001110") {
-        decodeCommand.cmd = "SWAPF";
+        decodeCommand.cmd = "normal";
         decodeCommand.dBit = stoi(this->toDecode.substr(6, 1), nullptr, 2);
         decodeCommand.filepos = stoi(this->toDecode.substr(7, 7), nullptr, 2);
         decodeCommand.literal = -1;
@@ -133,7 +133,7 @@ decode::decodedCmd decode::decodeCommand() {
 
     // ADDWF
     if (this->toDecode.substr(0, 6) == "000111") {
-        decodeCommand.cmd = "ADDWF";
+        decodeCommand.cmd = "normal";
         decodeCommand.dBit = stoi(this->toDecode.substr(6, 1), nullptr, 2);
         decodeCommand.filepos = stoi(this->toDecode.substr(7, 7), nullptr, 2);
         decodeCommand.literal = -1;
@@ -142,7 +142,7 @@ decode::decodedCmd decode::decodeCommand() {
 
     // ANDWF
     if (this->toDecode.substr(0, 6) == "000101") {
-        decodeCommand.cmd = "ANDWF";
+        decodeCommand.cmd = "normal";
         decodeCommand.dBit = stoi(this->toDecode.substr(6, 1), nullptr, 2);
         decodeCommand.filepos = stoi(this->toDecode.substr(7, 7), nullptr, 2);
         decodeCommand.literal = -1;
@@ -151,7 +151,7 @@ decode::decodedCmd decode::decodeCommand() {
 
     // ANDLW
     if (this->toDecode.substr(0, 6) == "111001") {
-        decodeCommand.cmd = "ANDLW";
+        decodeCommand.cmd = "normal";
         decodeCommand.dBit = -1;
         decodeCommand.filepos = -1;
         decodeCommand.literal = stoi(this->toDecode.substr(6, 8), nullptr, 2);
@@ -160,7 +160,7 @@ decode::decodedCmd decode::decodeCommand() {
 
     // DECFSZ
     if (this->toDecode.substr(0, 6) == "001011") {
-        decodeCommand.cmd = "DECFSZ";
+        decodeCommand.cmd = "normal";
         decodeCommand.dBit = stoi(this->toDecode.substr(6, 1), nullptr, 2);
         decodeCommand.filepos = stoi(this->toDecode.substr(7, 7), nullptr, 2);
         decodeCommand.literal = -1;
@@ -169,7 +169,7 @@ decode::decodedCmd decode::decodeCommand() {
 
     // INCFSZ
     if (this->toDecode.substr(0, 6) == "001111") {
-        decodeCommand.cmd = "INCFSZ";
+        decodeCommand.cmd = "normal";
         decodeCommand.dBit = stoi(this->toDecode.substr(6, 1), nullptr, 2);
         decodeCommand.filepos = stoi(this->toDecode.substr(7, 7), nullptr, 2);
         decodeCommand.literal = -1;
@@ -178,7 +178,7 @@ decode::decodedCmd decode::decodeCommand() {
 
     // COMF
     if (this->toDecode.substr(0, 6) == "001001") {
-        decodeCommand.cmd = "COMF";
+        decodeCommand.cmd = "normal";
         decodeCommand.dBit = stoi(this->toDecode.substr(6, 1), nullptr, 2);
         decodeCommand.filepos = stoi(this->toDecode.substr(7, 7), nullptr, 2);
         decodeCommand.literal = -1;
@@ -187,7 +187,7 @@ decode::decodedCmd decode::decodeCommand() {
 
     // IORLW
     if (this->toDecode.substr(0, 6) == "111000") {
-        decodeCommand.cmd = "IORLW";
+        decodeCommand.cmd = "normal";
         decodeCommand.dBit = -1;
         decodeCommand.filepos = -1;
         decodeCommand.literal = stoi(this->toDecode.substr(6, 9), nullptr, 2);
@@ -196,7 +196,7 @@ decode::decodedCmd decode::decodeCommand() {
 
     // DECF
     if (this->toDecode.substr(0, 6) == "000011") {
-        decodeCommand.cmd = "DECF";
+        decodeCommand.cmd = "normal";
         decodeCommand.dBit = stoi(this->toDecode.substr(6, 1), nullptr, 2);
         decodeCommand.filepos = stoi(this->toDecode.substr(7, 7), nullptr, 2);
         decodeCommand.literal = -1;
@@ -205,7 +205,7 @@ decode::decodedCmd decode::decodeCommand() {
 
     // INCF
     if (this->toDecode.substr(0, 6) == "001010") {
-        decodeCommand.cmd = "INCF";
+        decodeCommand.cmd = "normal";
         decodeCommand.dBit = stoi(this->toDecode.substr(6, 1), nullptr, 2);
         decodeCommand.filepos = stoi(this->toDecode.substr(7, 7), nullptr, 2);
         decodeCommand.literal = -1;
@@ -214,7 +214,7 @@ decode::decodedCmd decode::decodeCommand() {
 
     // XORLW
     if (this->toDecode.substr(0, 6) == "111010") {
-        decodeCommand.cmd = "XORLW";
+        decodeCommand.cmd = "normal";
         decodeCommand.dBit = -1;
         decodeCommand.filepos = -1;
         decodeCommand.literal = stoi(this->toDecode.substr(6, 8), nullptr, 2);
@@ -223,7 +223,7 @@ decode::decodedCmd decode::decodeCommand() {
 
     // RRF
     if (this->toDecode.substr(0, 6) == "001100") {
-        decodeCommand.cmd = "RRF";
+        decodeCommand.cmd = "normal";
         decodeCommand.dBit = stoi(this->toDecode.substr(6, 1), nullptr, 2);
         decodeCommand.filepos = stoi(this->toDecode.substr(7, 7), nullptr, 2);
         decodeCommand.literal = -1;
@@ -232,7 +232,7 @@ decode::decodedCmd decode::decodeCommand() {
 
     // RLF
     if (this->toDecode.substr(0, 6) == "001101") {
-        decodeCommand.cmd = "RLF";
+        decodeCommand.cmd = "normal";
         decodeCommand.dBit = stoi(this->toDecode.substr(6, 1), nullptr, 2);
         decodeCommand.filepos = stoi(this->toDecode.substr(7, 7), nullptr, 2);
         decodeCommand.literal = -1;
@@ -241,7 +241,7 @@ decode::decodedCmd decode::decodeCommand() {
 
     // XORWF
     if (this->toDecode.substr(0, 6) == "000110") {
-        decodeCommand.cmd = "XORWF";
+        decodeCommand.cmd = "normal";
         decodeCommand.dBit = stoi(this->toDecode.substr(6, 1), nullptr, 2);
         decodeCommand.filepos = stoi(this->toDecode.substr(7, 7), nullptr, 2);
         decodeCommand.literal = -1;
@@ -250,7 +250,7 @@ decode::decodedCmd decode::decodeCommand() {
 
     // SUBLW
     if (this->toDecode.substr(0, 5) == "11110") {
-        decodeCommand.cmd = "SUBLW";
+        decodeCommand.cmd = "normal";
         decodeCommand.dBit = -1;
         decodeCommand.filepos = -1;
         decodeCommand.literal = stoi(this->toDecode.substr(6, 8), nullptr, 2);
@@ -259,7 +259,7 @@ decode::decodedCmd decode::decodeCommand() {
 
     // ADDLW
     if (this->toDecode.substr(0, 5) == "11111") {
-        decodeCommand.cmd = "ADDLW";
+        decodeCommand.cmd = "normal";
         decodeCommand.dBit = -1;
         decodeCommand.filepos = -1;
         decodeCommand.literal = stoi(this->toDecode.substr(6, 8), nullptr, 2);
@@ -268,7 +268,7 @@ decode::decodedCmd decode::decodeCommand() {
 
     // BTFSC
     if (this->toDecode.substr(0, 4) == "0110") {
-        decodeCommand.cmd = "BTFSC";
+        decodeCommand.cmd = "normal";
         decodeCommand.literal = stoi(this->toDecode.substr(4, 3), nullptr, 2);
         decodeCommand.filepos = stoi(this->toDecode.substr(7, 7), nullptr, 2);
         decodeCommand.dBit = -1;
@@ -277,7 +277,7 @@ decode::decodedCmd decode::decodeCommand() {
 
     // BTFSS
     if (this->toDecode.substr(0, 4) == "0111") {
-        decodeCommand.cmd = "BTFSS";
+        decodeCommand.cmd = "normal";
         decodeCommand.literal = stoi(this->toDecode.substr(4, 3), nullptr, 2);
         decodeCommand.filepos = stoi(this->toDecode.substr(7, 7), nullptr, 2);
         decodeCommand.dBit = -1;
@@ -286,7 +286,7 @@ decode::decodedCmd decode::decodeCommand() {
 
     // BCF
     if (this->toDecode.substr(0, 4) == "0100") {
-        decodeCommand.cmd = "BCF";
+        decodeCommand.cmd = "normal";
         decodeCommand.literal = stoi(this->toDecode.substr(4, 3), nullptr, 2);
         decodeCommand.filepos = (stoi(this->toDecode.substr(7, 7), nullptr, 2));
         decodeCommand.dBit = -1;
@@ -295,7 +295,7 @@ decode::decodedCmd decode::decodeCommand() {
 
     // BSF
     if (this->toDecode.substr(0, 4) == "0101") {
-        decodeCommand.cmd = "BSF";
+        decodeCommand.cmd = "normal";
         decodeCommand.literal = stoi(this->toDecode.substr(4, 3), nullptr, 2);
         decodeCommand.filepos = stoi(this->toDecode.substr(7, 7), nullptr, 2);
         decodeCommand.dBit = -1;
@@ -304,7 +304,7 @@ decode::decodedCmd decode::decodeCommand() {
 
     // RETLW
     if (this->toDecode.substr(0, 4) == "1101") {
-        decodeCommand.cmd = "RETLW";
+        decodeCommand.cmd = "double";
         decodeCommand.dBit = -1;
         decodeCommand.filepos = -1;
         decodeCommand.literal = stoi(this->toDecode.substr(6, 8), nullptr, 2);
@@ -313,7 +313,7 @@ decode::decodedCmd decode::decodeCommand() {
 
     // MOVLW
     if (this->toDecode.substr(0, 4) == "1100") {
-        decodeCommand.cmd = "MOVLW";
+        decodeCommand.cmd = "normal";
         decodeCommand.dBit = -1;
         decodeCommand.filepos = -1;
         decodeCommand.literal = stoi(this->toDecode.substr(6, 8), nullptr, 2);
@@ -322,7 +322,7 @@ decode::decodedCmd decode::decodeCommand() {
 
     // CALL
     if (this->toDecode.substr(0, 3) == "100") {
-        decodeCommand.cmd = "CALL";
+        decodeCommand.cmd = "double";
         decodeCommand.dBit = -1;
         decodeCommand.filepos = -1;
         decodeCommand.literal = stoi(this->toDecode.substr(3, 11), nullptr, 2);
@@ -331,7 +331,7 @@ decode::decodedCmd decode::decodeCommand() {
 
     // GOTO
     if (this->toDecode.substr(0, 3) == "101") {
-        decodeCommand.cmd = "GOTO";
+        decodeCommand.cmd = "double";
         decodeCommand.dBit = -1;
         decodeCommand.filepos = -1;
         decodeCommand.literal = stoi(this->toDecode.substr(3, 11), nullptr, 2);

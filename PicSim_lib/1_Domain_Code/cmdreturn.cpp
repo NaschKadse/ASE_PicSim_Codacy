@@ -1,7 +1,8 @@
 #include "cmdreturn.h"
 
-void cmdreturn::executeCMD(const decodedCmdSimple ldecoded) {
-    increasePC("stack");
-    increaseCycle2();
-    increaseRuntime2();
+void cmdreturn::logic(const decodedCmdSimple ldecoded) {
+}
+void cmdreturn::updateProgramCounter() {
+    picDatalocal->setProgramCounter(customStacklocal->top().to_ulong());
+    customStacklocal->pop();
 }

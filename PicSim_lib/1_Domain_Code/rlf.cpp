@@ -1,6 +1,6 @@
 #include "rlf.h"
 
-void rlf::executeCMD(decodedCmdSimple ldecoded) {
+void rlf::logic(decodedCmdSimple ldecoded) {
     BYTE toshift = ramlocal->getRam(ldecoded.filepos);
     if (ramlocal->getRam(3).test(0) == 1) // Test Carry Ram
     {
@@ -64,7 +64,7 @@ void rlf::executeCMD(decodedCmdSimple ldecoded) {
             }
         }
     }
-    increasePC();
-    increaseCycle1();
-    increaseRuntime();
+}
+void rlf::updateProgramCounter() {
+    picDatalocal->setProgramCounter(picDatalocal->getProgramCounter().to_ulong() + 1);
 }

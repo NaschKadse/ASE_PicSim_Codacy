@@ -1,8 +1,9 @@
 #include "retlw.h"
 
-void retlw::executeCMD(decodedCmdSimple ldecoded) {
+void retlw::logic(decodedCmdSimple ldecoded) {
     picDatalocal->setWreg(ldecoded.literal);
-    increasePC("stack");
-    increaseCycle2();
-    increaseRuntime2();
+}
+void retlw::updateProgramCounter() {
+    picDatalocal->setProgramCounter(customStacklocal->top().to_ulong());
+    customStacklocal->pop();
 }

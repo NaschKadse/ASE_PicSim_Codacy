@@ -1,14 +1,14 @@
 #include "incfsz.h"
 
-void incfsz::executeCMD(decodedCmdSimple ldecoded) {
+void incfsz::logic(decodedCmdSimple ldecoded) {
     if (ldecoded.dBit == 0) {
         picDatalocal->setWreg(ramlocal->getRam(ldecoded.filepos).to_ulong() + 1);
         if (picDatalocal->getWreg() == 0) {
 
             //NOP
-            increasePC();
-            increaseCycle1();
-            increaseRuntime();
+            updateProgramCounter();
+            updateCycle("normal");
+            updateRuntime("normal");
             // NOP ENDE
         }
     } else {
@@ -21,13 +21,13 @@ void incfsz::executeCMD(decodedCmdSimple ldecoded) {
         if (ramlocal->getRam(ldecoded.filepos).to_ulong() == 0) {
 
             //NOP
-            increasePC();
-            increaseCycle1();
-            increaseRuntime();
+            updateProgramCounter();
+            updateCycle("normal");
+            updateRuntime("normal");
             // NOP ENDE
         }
     }
-    increasePC();
-    increaseCycle1();
-    increaseRuntime();
+}
+void incfsz::updateProgramCounter() {
+    picDatalocal->setProgramCounter(picDatalocal->getProgramCounter().to_ulong() + 1);
 }

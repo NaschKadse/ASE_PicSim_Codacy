@@ -1,6 +1,6 @@
 #include "swapf.h"
 
-void swapf::executeCMD(decodedCmdSimple ldecoded) {
+void swapf::logic(decodedCmdSimple ldecoded) {
     std::string toswap = ramlocal->getRam(ldecoded.filepos).to_string();
     std::string lowerbyte = toswap.substr(4, 4);
     std::string highbyte = toswap.substr(0, 4);
@@ -14,7 +14,7 @@ void swapf::executeCMD(decodedCmdSimple ldecoded) {
                     createPC(ramlocal->getRam(10).to_string(), ramlocal->getRam(2).to_string()));
         }
     }
-    increasePC();
-    increaseCycle1();
-    increaseRuntime();
+}
+void swapf::updateProgramCounter() {
+    picDatalocal->setProgramCounter(picDatalocal->getProgramCounter().to_ulong() + 1);
 }

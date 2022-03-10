@@ -9,10 +9,8 @@ typedef std::bitset<13> PC;
 
 class bsf : public command {
 public:
-    void executeCMD(decodedCmdSimple ldecoded) override;
-private:
-    ram *ramlocal = ram::getRamObject();
-    picData *picDatalocal = picData::getPicDataObject();
+    void logic(decodedCmdSimple ldecoded) override;
+    void updateProgramCounter() override;
 };
 
 #endif //ASE_PICSIM_BSF_H

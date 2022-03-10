@@ -9,7 +9,8 @@ typedef std::bitset<13> PC;
 
 class xorlw : public command {
 public:
-    void executeCMD(decodedCmdSimple ldecoded) override;
+    void logic(decodedCmdSimple ldecoded) override;
+    void updateProgramCounter() override;
 };
 
 #endif //ASE_PICSIM_XORLW_H

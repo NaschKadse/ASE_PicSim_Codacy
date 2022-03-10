@@ -1,6 +1,6 @@
 #include "addwf.h"
 
-void addwf::executeCMD(decodedCmdSimple ldecoded) {
+void addwf::logic(decodedCmdSimple ldecoded) {
     if (ldecoded.dBit == 0) {
         additionReturn additionret = ramlocal->doaddition(ramlocal->getRam(ldecoded.filepos), picDatalocal->getWreg());
         picDatalocal->setWreg(additionret.result);
@@ -35,7 +35,7 @@ void addwf::executeCMD(decodedCmdSimple ldecoded) {
                     createPC(ramlocal->getRam(10).to_string(), ramlocal->getRam(2).to_string()));
         }
     }
-    increasePC();
-    increaseCycle1();
-    increaseRuntime();
+}
+void addwf::updateProgramCounter() {
+    picDatalocal->setProgramCounter(picDatalocal->getProgramCounter().to_ulong() + 1);
 }

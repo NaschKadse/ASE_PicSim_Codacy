@@ -1,6 +1,6 @@
 #include "subwf.h"
 
-void subwf::executeCMD(decodedCmdSimple ldecoded) {
+void subwf::logic(decodedCmdSimple ldecoded) {
     if (ldecoded.dBit == 0) {
         additionReturn additionret = ramlocal->doaddition(ramlocal->getRam(ldecoded.filepos),
                                                           (~picDatalocal->getWreg()).to_ulong() + 1);
@@ -37,7 +37,7 @@ void subwf::executeCMD(decodedCmdSimple ldecoded) {
                     createPC(ramlocal->getRam(10).to_string(), ramlocal->getRam(2).to_string()));
         }
     }
-    increasePC();
-    increaseCycle1();
-    increaseRuntime();
+}
+void subwf::updateProgramCounter() {
+    picDatalocal->setProgramCounter(picDatalocal->getProgramCounter().to_ulong() + 1);
 }

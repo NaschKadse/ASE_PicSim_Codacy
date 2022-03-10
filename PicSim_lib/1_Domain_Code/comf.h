@@ -9,7 +9,8 @@ typedef std::bitset<13> PC;
 
 class comf : public command {
 public:
-    void executeCMD(decodedCmdSimple ldecoded) override;
+    void logic(decodedCmdSimple ldecoded) override;
+    void updateProgramCounter() override;
 };
 
 #endif //ASE_PICSIM_COMF_H

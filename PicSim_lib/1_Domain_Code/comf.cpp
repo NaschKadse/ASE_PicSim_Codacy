@@ -1,6 +1,6 @@
 #include "comf.h"
 
-void comf::executeCMD(decodedCmdSimple ldecoded) {
+void comf::logic(decodedCmdSimple ldecoded) {
     BYTE ramcontent = ramlocal->getRam(ldecoded.filepos);
     if (ldecoded.dBit == 0) {
         picDatalocal->setWreg(ramcontent.flip());
@@ -14,7 +14,8 @@ void comf::executeCMD(decodedCmdSimple ldecoded) {
         }
         ramlocal->zeroFlag(ramlocal->getRam(ldecoded.filepos).to_ulong());
     }
-    increasePC();
-    increaseCycle1();
-    increaseRuntime();
+}
+void comf::updateProgramCounter() {
+    picDatalocal->setProgramCounter(picDatalocal->getProgramCounter().to_ulong() + 1);
+
 }

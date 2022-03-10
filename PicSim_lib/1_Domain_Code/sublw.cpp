@@ -1,6 +1,6 @@
 #include "sublw.h"
 
-void sublw::executeCMD(decodedCmdSimple ldecoded) {
+void sublw::logic(decodedCmdSimple ldecoded) {
     additionReturn additionret = ramlocal->doaddition(ldecoded.literal, (~picDatalocal->getWreg()).to_ulong() + 1);
     picDatalocal->setWreg(additionret.result);
     ramlocal->zeroFlag(picDatalocal->getWreg().to_ulong());
@@ -14,7 +14,7 @@ void sublw::executeCMD(decodedCmdSimple ldecoded) {
     } else {
         ramlocal->setDCarry(false);
     }
-    increasePC();
-    increaseCycle1();
-    increaseRuntime();
+}
+void sublw::updateProgramCounter() {
+    picDatalocal->setProgramCounter(picDatalocal->getProgramCounter().to_ulong() + 1);
 }
